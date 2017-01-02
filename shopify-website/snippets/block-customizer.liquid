@@ -1,0 +1,47 @@
+{% if product.tags contains 'bed' %}
+	{% assign description = settings.bed_description %}
+	{% assign features = settings.bed_features %}
+{%elsif product.tags contains 'blanket' %}
+	{% assign description = settings.blanket_description %}
+	{% assign features = settings.blanket_features %}
+{%elsif product.tags contains 'coat' %}
+	{% assign description = settings.coat_description %}
+	{% assign features = settings.coat_features %}
+{%elsif product.tags contains 'collar' %}
+	{% assign description = settings.collar_description %}
+	{% assign features = settings.collar_features %}
+{%elsif product.tags contains 'hoodie' %}
+	{% assign description = settings.hoodie_description %}
+	{% assign features = settings.hoodie_features %}
+{%elsif product.tags contains 'leash' %}
+	{% assign description = settings.leash_description %}
+	{% assign features = settings.leash_features %}
+{%elsif product.tags contains 'placemat' %}
+	{% assign description = settings.placemat_description %}
+	{% assign features = settings.placemat_features %}
+{%elsif product.tags contains 'frisbee' %}
+	{% assign description = settings.frisbee_description %}
+	{% assign features = settings.frisbee_features %}
+{%elsif product.tags contains 'bone' %}
+	{% assign description = settings.bone_description %}
+	{% assign features = settings.bone_features %}
+{%elsif product.tags contains 'basket' %}
+	{% assign description = settings.basket_description %}
+	{% assign features = settings.basket_features %}
+{%elsif product.tags contains 'crate' %}
+	{% assign description = settings.crate_description %}
+	{% assign features = settings.crate_features %}
+{%elsif product.tags contains 'sherpa' %}
+	{% assign description = settings.sherpa_description %}
+	{% assign features = settings.sherpa_features %}
+{% endif %}
+<div id="product-customizer"
+     {% if simple %}
+     simple="simple"
+     {% endif %}
+     shopify-meta='{{ product.metafields.customizer | json }}'
+     shopify-data='{{ product | json }}'
+     shopify-images='{{ product.images | json }}'
+     shopify-description='{{ description | json }}'
+     shopify-features='{{ features | json }}'>
+</div>

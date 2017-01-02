@@ -1,0 +1,36 @@
+<div id="productlisttrending" class="products_block exclusive" >
+  <h4 class="page-subheading">
+    TOP TRENDING PRODUCTS
+  </h4>
+	<div class="block_content">
+		{% assign collection_produclists = collections.['top-trending-all-products'].products %}
+		{% include 'product-carousel-owl' %}
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+      $("#productlisttrending .owl-carousel").each(function(){
+        $(this).owlCarousel({
+          items : 4,
+          itemsDesktop : [1199, 2],
+          itemsDesktopSmall : [979, 2],
+          itemsTablet : [768, 2],
+          itemsTabletSmall : false,
+          itemsMobile : [479, 1],
+          lazyLoad : true,
+          responsive : true,
+          navigation : true,
+          afterInit : SetOwlCarouselFirstLast,
+          afterAction : SetOwlCarouselFirstLast,
+          addClassActive : true,
+        }); 
+      });
+      function SetOwlCarouselFirstLast(el){
+        el.find(".owl-item").removeClass("first");
+        el.find(".owl-item.active").first().addClass("first");
+
+        el.find(".owl-item").removeClass("last");
+        el.find(".owl-item.active").last().addClass("last");
+      };
+	});
+</script>

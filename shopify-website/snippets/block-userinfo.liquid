@@ -1,0 +1,40 @@
+{% if shop.customer_accounts_optional %}
+	
+	<div class="header_user_info popup-over pull-left e-scale">
+		<div data-toggle="dropdown" class="popup-title dropdown-toggle">
+			<i class="fa fa-user"></i>
+			<span>Top links</span>
+		</div>
+		<div class="links dropdown-menu">
+			<ul class="toogle_content list-unstyle">
+				{% if settings.theme_wishlist_enable %}
+					<li>
+						<a id="wishlist-total" title="My wishlists" href="/pages/wish-list">Wishlist</a>
+					</li>
+				{% endif %}
+				<li>
+					<a href="/cart" title="{{ 'cart.general.title' | t }}">{{ 'cart.general.checkout' | t }}</a>
+				</li>
+				<li>
+					<a class="account" rel="nofollow" href="/account" title="{{ 'customer.account.title' | t }}">{{ 'customer.account.title' | t }}</a>
+				</li>
+				{% if customer %}
+					<li>
+						<a class="account" rel="nofollow" href="/account" title="{{ 'customer.account.title' | t }}"><span>Hello, {{ customer.first_name }} {{ customer.last_name }}</span></a>
+					</li>
+					<li>
+						<a id="customer_logout_link" href="/account/logout" title="{{ 'layout.customer.log_out' | t }}">{{ 'layout.customer.log_out' | t }}</a>
+					</li>
+				{% else %}
+					<li>
+						<a id="customer_login_link" href="/account/login" title="{{ 'layout.customer.log_in' | t }}">{{ 'layout.customer.log_in' | t }}</a>
+					</li>
+					<li>
+						<a id="customer_register_link" href="/account/register" title="{{ 'customer.register.name' | t }}">{{ 'customer.register.name' | t }}</a>
+					</li>
+				{% endif %}
+			</ul>
+			{% include 'register-form' %}
+		</div>
+	</div>
+{% endif %}

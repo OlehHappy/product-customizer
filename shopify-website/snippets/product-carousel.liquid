@@ -1,0 +1,84 @@
+{% unless check_iterm_special %}
+	{% assign check_iterm_special = false %}
+{% endunless %}
+{% unless item_in_page %}
+	{% assign item_in_page = 8 %}
+{% endunless %}
+{% assign columns_product = 4 %}
+{% unless product_in_tab %}
+	{% assign product_in_tab = 16 %}
+{% endunless %}
+{% unless arrayItems %}
+	{% assign arrayItems = "8,16,24,32" | split: ',' %}
+{% endunless %}
+{% assign products = collection_produclists %}
+
+<div class="carousel slide" id="{{ product_carousel }}">
+	{% if products.size > item_in_page %}
+		<a class="carousel-control left" href="#{{ product_carousel }}"   data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#{{ product_carousel }}"  data-slide="next">&rsaquo;</a>
+	{% endif %}
+	<div class="carousel-inner">
+		{% if check_iterm_special == false %}
+			{% for product in products limit:product_in_tab %}
+				{% capture index %}{{ forloop.index }}{% endcapture %}
+				{% if forloop.first %}
+					<div class="item active">
+						<div class="product_list">
+							<div class="row">
+				{% endif %}
+				{% if arrayItems contains index and forloop.last %}
+								{% include 'product-grid-item' %}
+							</div>
+						</div>
+					</div>
+				{% elsif arrayItems contains index %}
+								{% include 'product-grid-item' %}
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="product_list">
+							<div class="row">
+				{% elsif forloop.last %}
+								{% include 'product-grid-item' %}
+							</div>
+						</div>
+					</div>
+				{% else %}
+					{% include 'product-grid-item' %}
+				{% endif %}
+			{% endfor %}
+		{% else %}
+			{% for product in products limit:product_in_tab %}
+				{% capture index %}{{ forloop.index }}{% endcapture %}
+				{% if forloop.first %}
+					<div class="item active">
+						<div class="product_list">
+							<div class="row">
+				{% endif %}
+				{% if arrayItems contains index and forloop.last %}
+								{% include 'product-grid-item-special' %}
+							</div>
+						</div>
+					</div>
+				{% elsif arrayItems contains index %}
+								{% include 'product-grid-item-special' %}
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="product_list">
+							<div class="row">
+				{% elsif forloop.last %}
+								{% include 'product-grid-item-special' %}
+							</div>
+						</div>
+					</div>
+				{% else %}
+					{% include 'product-grid-item-special' %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,34 @@
+{
+  "jspm": {
+    "dependencies": {
+      "events": "github:jspm/nodelibs-events@^0.1.1",
+      "flux": "npm:flux@^2.0.3",
+      "lodash": "npm:lodash@4.3.0",
+      "react": "npm:react@^0.14.7",
+      "react-dnd": "npm:react-dnd@^2.1.0",
+      "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
+      "react-dom": "npm:react-dom@^0.14.7"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "scripts": {
+    "browsersync": "browser-sync start --server --files 'app/js/**/*, build/main.css'",
+    "server": "npm run watch & npm run browsersync",
+    "build:css": "node-sass app/scss/main.scss build/main.css --source-map=true --output-style=compressed",
+    "build:js": "jspm bundle-sfx -m app/js/main build/main.js",
+    "build": "npm run build:css & npm run build:js",
+    "watch": "nodemon -e scss -w app/scss -x 'npm run build:css'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.12",
+    "nodemon": "^1.3.7",
+    "uglifyjs": "^2.4.10"
+  },
+  "dependencies": {
+    "react": "^0.14.7"
+  }
+}

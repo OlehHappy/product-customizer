@@ -1,0 +1,96 @@
+{% include 'breadcrumb' %}
+
+<div class="container product-section" style="padding-bottom: 30px;">
+<h1 class="page-heading bottom-indent">{{ 'contact.form.title' | t }}</h1>
+<table style="width: 100%; text-align: center; overflow: hidden;">
+<tr>
+  <td class="contact-paragraph">
+    <p>At PrideBites, we take PRIDE in our customer service.<br/>
+Please send us any questions or concerns you have by clicking the email link<br/>
+below or the chat in the bottom right corner of your screen.<br/>
+A PrideBites' representative will respond as soon as possible. Our goal is to<br/>
+ensure all our customers have a pleasant shopping experience.<br/><br/>
+Also check out our knowledge base Here to find answers to our most<br/>
+commonly asked questions!<br/><br/>
+Thank you for visiting <span style="border-bottom:1px solid #db3340;">PrideBites.com!</span></p>
+  </td>
+  <td class="contact-details">
+    <table>
+      <tr>
+        <td style="vertical-align: top;"><i class="fa fa-at" style="color: #db3340; font-weight: 900; font-size: 24px; margin-right: 20px;"></i></td>
+        <td>Customerservice@PrideBites.com</td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; padding-top: 10px;"><i class="fa fa-phone" style="color: #db3340; font-weight: 900; font-size: 24px; margin-right: 20px;"></i></td>
+        <td style="padding-top: 10px;">(512) 339-0881</td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; padding-top: 10px;"><i class="fa fa-home" style="color: #db3340; font-weight: 900; font-size: 24px; margin-right: 20px;"></i></td>
+        <td style="padding-top: 10px;">PrideBites, LLC<br/>8906 Wall Street #805<br/>Austin, TX, 78754</td>
+      </tr>      
+    </table>
+  </td>
+  </tr>
+  </table>
+</div>
+
+<section id="columns" class="columns-container product">
+    <div id="columns" class="container">
+        <div class="row">
+            <section id="center_column" class="col-sm-12 col-md-12">
+
+                {% if settings.map_contact_enable %}
+                    {% include 'block-google-map' %}
+                {% endif %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        {% form 'contact' %}
+                            {% if form.posted_successfully? %}
+                                <p class="alert alert-success">
+                                    {{ 'contact.form.post_success' | t }}
+                                </p>
+                            {% endif %}
+                            {{ form.errors | default_errors }}
+                            <div class="contact-form-box">
+                                <fieldset>
+                                    <h3 class="page-subheading">send a message</h3>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div class="form-group">
+                                                {% assign name_attr = 'contact.form.name' | t | handle %}
+                                                <label for="ContactFormName" class="label--hidden">{{ 'contact.form.name' | t }}</label>
+                                                <input class="form-control grey" type="text" id="ContactFormName" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div class="form-group">
+                                                <label for="ContactFormEmail" class="label--hidden">{{ 'contact.form.email' | t }}</label>
+                                                <input class="form-control grey" type="email" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div class="form-group">
+                                                {% assign name_attr = 'contact.form.phone' | t | handle %}
+                                                <label for="ContactFormPhone" class="label--hidden">{{ 'contact.form.phone' | t }}</label>
+                                                <input class="form-control grey" type="tel" id="ContactFormPhone" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label for="ContactFormMessage" class="label--hidden">{{ 'contact.form.message' | t }}</label>
+                                                <textarea class="form-control" rows="8" id="ContactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="submit">
+                                        <input type="submit" class="btn btn-outline" value="{{ 'contact.form.send' | t }}">
+                                    </div>
+                                </fieldset>
+                            </div>
+                        {% endform %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

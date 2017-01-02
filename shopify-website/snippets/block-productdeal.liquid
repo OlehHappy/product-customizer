@@ -1,0 +1,19 @@
+{% for dealPro in dealTime %}
+    {% capture currentProducID %}{{ product.id }}@{% endcapture %}
+    {% if dealPro contains currentProducID %}
+        {% assign dealProTime = dealPro | replace: currentProducID,'' | replace: '_',' ' %}
+        <div class="deal-clock lof-clock-{{ product.id }}-detail"></div>
+        <script>
+        //<![CDATA[
+        jQuery(document).ready(function($){
+            $(".lof-clock-{{ product.id }}-detail").lofCountDown({
+                TargetDate:"{{ dealProTime }}",
+                DisplayFormat:"<ul class='list-inline'><li class='day'>%%D%%<br/><span>Days</span></li><li>%%H%%<br/><span>Hours</span></li><li>%%M%%<br/><span>Mins</span></li><li>%%S%%<br/><span>Secs</span></li></ul>",
+                FinishMessage: "Expired"
+            });
+        });
+        //]]>
+        </script>
+        {% break %}
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,75 @@
+{% assign galleryImages = "1|2|3|4|5" | split: '|' %}
+{% if product.tags contains 'bed' %}
+	{% assign productGallery = "bed" %}
+{%elsif product.tags contains 'blanket' %}
+	{% assign productGallery = "blanket" %}
+{%elsif product.tags contains 'coat' %}
+	{% assign productGallery = "coat" %}
+{%elsif product.tags contains 'collar' %}
+	{% assign productGallery = "collar" %}
+{%elsif product.tags contains 'hoodie' %}
+	{% assign productGallery = "hoodie" %}
+{%elsif product.tags contains 'leash' %}
+	{% assign productGallery = "leash" %}
+{%elsif product.tags contains 'placemat' %}
+	{% assign productGallery = "placemat" %}
+{%elsif product.tags contains 'frisbee' %}
+	{% assign productGallery = "frisbee" %}
+{%elsif product.tags contains 'bone' %}
+	{% assign productGallery = "bone" %}
+{%elsif product.tags contains 'basket' %}
+	{% assign productGallery = "basket" %}
+{%elsif product.tags contains 'sherpa' %}
+	{% assign productGallery = "sherpa" %}
+{%elsif product.tags contains 'crate' %}
+	{% assign productGallery = "crate" %}
+{% endif %}
+<div id="product-gallery" class="products_block exclusive" >
+  <h4 class="page-subheading">
+    PRODUCT GALLERY
+  </h4>
+  <div class="block_content">
+    <div class="row">
+      <div class="owl-carousel owl-theme">
+        {% for galleryImage in galleryImages %}
+        <div class="item">
+          <div class="product_block">
+            <div class="product-container text-center product-block">
+              <div class="product-image-container image">
+                <img class="replace-2x img-responsive" src="http://s3.amazonaws.com/pridebites-customizer/pridebites-product-gallery/{{productGallery}}/{{productGallery}}-{{ galleryImage }}.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+     $("#product-gallery .owl-carousel").each(function(){
+        $(this).owlCarousel({
+        items : 3,
+        itemsDesktop : [1199, 2],
+        itemsDesktopSmall : [979, 2],
+        itemsTablet : [768, 2],
+        itemsTabletSmall : false,
+        itemsMobile : [479, 1],
+        lazyLoad : true,
+        responsive : true,
+        navigation : true,
+        afterInit : SetOwlCarouselFirstLast,
+        afterAction : SetOwlCarouselFirstLast,
+        addClassActive : true,
+      }); 
+    });
+    function SetOwlCarouselFirstLast(el){
+      el.find(".owl-item").removeClass("first");
+      el.find(".owl-item.active").first().addClass("first");
+
+      el.find(".owl-item").removeClass("last");
+      el.find(".owl-item.active").last().addClass("last");
+    };
+  });
+</script>

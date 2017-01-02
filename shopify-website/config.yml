@@ -1,0 +1,12 @@
+---
+:api_key: 05a45e5d51614328f99cc5ea00e1476b
+:password: 24e8686cf67f567db62e6723ae610c2a
+:store: pridebites-customizer.myshopify.com
+:theme_id: 92083207
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/

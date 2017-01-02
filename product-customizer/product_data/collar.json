@@ -1,0 +1,419 @@
+{
+  "name":"Collar",
+  "key":"collar",
+  "complexUrl": "http://pridebites.com/products/custom-collar",
+  "views":[
+    {
+      "key":"1st",
+      "index": 1,
+      "layers":[
+        {
+          "key":"ribbon",
+          "type":"image",
+          "zIndex":1
+        },
+        {
+          "key":"buckle",
+          "type":"image",
+          "zIndex":2
+        },
+        {
+          "key":"name",
+          "type":"text",
+          "zIndex":3,
+          "defaults":{
+            "Size":100,
+            "x":380,
+            "y":205,
+            "h":70,
+            "w":160,
+            "align":"center"
+          }
+        },
+        {
+          "key":"collar-1st-d-ring",
+          "type":"static",
+          "zIndex":5
+        }
+      ]
+    },
+    {
+      "key":"2nd",
+      "index": 2,
+      "layers":[
+        {
+          "key":"ribbon",
+          "type":"image",
+          "zIndex":1
+        },
+        {
+          "key":"buckle",
+          "type":"image",
+          "zIndex":2
+        },
+        {
+          "key":"collar-2nd-d-ring",
+          "type":"static",
+          "zIndex":4
+        }
+      ]
+    },
+    {
+      "key":"3rd",
+      "index": 3,
+      "layers":[
+        {
+          "key":"collar-3rd-dog",
+          "type":"static",
+          "zIndex":1
+        },
+        {
+          "key":"ribbon",
+          "type":"image",
+          "zIndex":2
+        },
+        {
+          "key":"buckle",
+          "type":"image",
+          "zIndex":3
+        }
+      ]
+    }
+  ],
+  "steps":[
+    {
+      "name":"Name",
+      "title": "Add My Dog's Name",
+      "simple": true,
+      "customizations":[
+        {
+          "field":"text",
+          "helpText": "Want to see more design options?",
+          "helpLinkText": "Start Customizing!",
+          "helpLink": "CustomToolButton",
+          "display":"Add your dog's name",
+          "selectedValue":"",
+          "simple": true,
+          "type":"Text"
+        },
+        {
+          "field": "banner",
+          "label": "Choose a Banner",
+          "selectedValue": "oval",
+          "type": "ImageRadio",
+          "optionScope": "global",
+          "options": [
+            {
+              "value": "oval",
+              "displayUrl": "oval.png"
+            },
+            {
+              "value": "vintage",
+              "displayUrl": "vintage.png"
+            },
+            {
+              "value": "hardware",
+              "displayUrl": "hardware.png"
+            },
+            {
+              "value": "bone",
+              "displayUrl": "bone.png"
+            }
+          ]
+        },
+        {
+          "field":"font",
+          "label":"Choose a Font",
+          "selectedValue":"BigDog.TTF",
+          "type":"Dropdown",
+          "options":[
+            {
+              "value":"playfulpup.TTF",
+              "display":"Playful Pup"
+            },
+            {
+              "value":"ClassyCanine.ttf",
+              "display":"Classy Canine"
+            },
+            {
+              "value":"BigDog.TTF",
+              "display":"Big DOG"
+            }
+          ]
+        },
+        {
+          "field":"textcolor",
+          "label":"Choose a Font Color",
+          "selectedValue":"Black",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"Red",
+              "display":"c2002f",
+              "label":"Red"
+            },
+            {
+              "value":"Orange",
+              "display":"f68d29",
+              "label":"Orange"
+            },
+            {
+              "value":"Yellow",
+              "display":"ffd923",
+              "label":"Yellow"
+            },
+            {
+              "value":"Teal",
+              "display":"9cd8d8",
+              "label":"Teal"
+            },
+            {
+              "value":"Green",
+              "display":"009877",
+              "label":"Green"
+            },
+            {
+              "value":"Blue",
+              "display":"005cb8",
+              "label":"Blue"
+            },
+            {
+              "value":"Purple",
+              "display":"853175",
+              "label":"Purple"
+            },
+            {
+              "value":"Pink",
+              "display":"e51992",
+              "label":"Pink"
+            },
+            {
+              "value":"Black",
+              "display":"000000",
+              "label":"Black"
+            },
+            {
+              "value":"White",
+              "display":"ffffff",
+              "label":"White"
+            },
+            {
+              "value":"LightGray",
+              "display":"b4b2b2",
+              "label":"LightGray"
+            },
+            {
+              "value":"Tan",
+              "display":"cfb4a7",
+              "label":"Tan"
+            },
+            {
+              "value":"Brown",
+              "display":"5d3326",
+              "label":"Brown"
+            },
+            {
+              "value":"DarkGreen",
+              "display":"404726",
+              "label":"DarkGreen"
+            },
+            {
+              "value":"NavyBlue",
+              "display":"003763",
+              "label":"NavyBlue"
+            },
+            {
+              "value":"Wine",
+              "display":"79232e",
+              "label":"Wine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Size",
+      "title": "Choose My Collar's Size",
+      "simple": true,
+      "customizations":[
+        {
+          "field":"size",
+          "helpText": "Find the perfect size for your pup.",
+          "helpLinkText": "View Size Chart!",
+          "helpLink": "collar-size-chart.jpg",
+          "staticContent":"#staticContentSizeChartTemplate",
+          "selectedValue":"small",
+          "type": "Dropdown",
+          "variant": true,
+          "simple": true,
+          "options":[
+            {
+              "value":"small",
+              "display":"Small"
+            },
+            {
+              "value":"medium",
+              "display":"Medium (+$1)"
+            },
+            {
+              "value":"large",
+              "display":"Large ($2)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Ribbon",
+      "title": "Choose a Ribbon Color",
+      "customizations":[
+        {
+          "field":"ribbon",
+          "selectedValue":"diamonds",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"red",
+              "display":"c2002f"
+            },
+            {
+              "value":"white",
+              "display":"ffffff"
+            },
+            {
+              "value":"orange",
+              "display":"f68d29"
+            },
+            {
+              "value":"yellow",
+              "display":"ffd923"
+            },
+            {
+              "value":"teal",
+              "display":"9cd8d8"
+            },
+            {
+              "value":"green",
+              "display":"009877"
+            },
+            {
+              "value":"blue",
+              "display":"005cb8"
+            },
+            {
+              "value":"purple",
+              "display":"853175"
+            },
+            {
+              "value":"pink",
+              "display":"e51992"
+            },
+            {
+              "value":"black",
+              "display":"000000"
+            },
+            {
+              "groupImg":"plaid5.jpg",
+              "display":"Patterns",
+              "options":[
+                {
+                  "imgSrc":"plaid5.jpg",
+                  "value":"plaid",
+                  "label":"Plaid"
+                },
+                {
+                  "imgSrc":"anchor1.jpg",
+                  "value":"anchor",
+                  "label":"Anchor"
+                },
+                {
+                  "imgSrc":"diamonds1.jpg",
+                  "value":"diamonds",
+                  "label":"Diamonds"
+                },
+                {
+                  "imgSrc":"bones5.jpg",
+                  "value":"bones",
+                  "label":"Bones"
+                },
+                {
+                  "imgSrc":"floral1.jpg",
+                  "value":"floral",
+                  "label":"Floral"
+                },
+                {
+                  "imgSrc":"swirl1.jpg",
+                  "value":"swirl",
+                  "label":"Swirl"
+                },
+                {
+                  "imgSrc":"chevron5.jpg",
+                  "value":"chevron",
+                  "label":"Chevron"
+                },
+                {
+                  "imgSrc":"triangles1.jpg",
+                  "value":"triangles",
+                  "label":"Triangles"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Buckle",
+      "title": "Choose a Buckle Color",
+      "customizations":[
+        {
+          "field":"buckle",
+          "selectedValue":"purple",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"red",
+              "display":"c2002f"
+            },
+            {
+              "value":"white",
+              "display":"ffffff"
+            },
+            {
+              "value":"orange",
+              "display":"f68d29"
+            },
+            {
+              "value":"yellow",
+              "display":"ffd923"
+            },
+            {
+              "value":"teal",
+              "display":"9cd8d8"
+            },
+            {
+              "value":"green",
+              "display":"009877"
+            },
+            {
+              "value":"blue",
+              "display":"005cb8"
+            },
+            {
+              "value":"purple",
+              "display":"853175"
+            },
+            {
+              "value":"pink",
+              "display":"e51992"
+            },
+            {
+              "value":"black",
+              "display":"000000"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

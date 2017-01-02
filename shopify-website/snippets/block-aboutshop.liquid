@@ -1,0 +1,17 @@
+<div class="block_aboutshop block">
+	<div class="block_content toggle-footer">
+			{% if settings.footer_aboutshop_title != "" %}
+				<h3 class="title_block">{{ settings.footer_aboutshop_title }}</h3>
+			{% endif %}
+			<div class="box logo-ft">
+				<p>
+					{{ 'shop_images_footer.png' | asset_url | img_tag: settings.footer_aboutshop_title, "img-responsive" }}
+				</p>
+			</div>
+			<div class="about">
+				{% if settings.footer_aboutshop_des %}
+					<p>{{ settings.footer_aboutshop_des }}</p>
+				{% endif %}
+			</div>
+	</div>
+</div>

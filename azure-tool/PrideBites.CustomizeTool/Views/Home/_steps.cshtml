@@ -1,0 +1,35 @@
+﻿<script type="text/x-underscore" id='stepTemplate'>
+    <div class="panel panel-primary customization-step" id="step-<%= step.id%>">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#stepAccordian" href="#collapse-<%= step.id%>" data-bind="click: function(){ userState.selectedStep('<%= step.id%>'); }">
+            <h4 class="panel-title"><i class="fa <%= step.icon %> icon"></i><%= step.name%></h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapse-<%= step.id%>">
+            <div class="panel-body">
+                <div class="step-attributes">
+                    <% if(step.attributes.length == 1){ %>
+                    <div class="singleAttribute-content">
+                        <%= _.template( $("#attributeTemplate").html(), {"product":product, "attribute": step.attributes[0]} ) %>
+                        @*<% if( step.id == 'personalize'){%>
+                           
+                        <%}%>*@
+                    </div>
+                    <%}else{%>
+                    @*Show tabs if multiple attributes*@
+                    <ul class="nav nav-tabs">
+                        <% _.each(step.attributes, function(attribute) { %>
+                        <%= _.template( $('#tabHeaderTemplate').html(), {"attribute":attribute, "attributeCount": step.attributes.length}) %>
+                        <%});%>
+                    </ul>
+                    <div class="tab-content">
+                        <% _.each(step.attributes, function(attribute) { %>
+                        <%= _.template( $('#tabContentTemplate').html(), { "product": product, "attribute" : attribute} ) %>
+                        <%});%>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+@Html.Partial("_attributes")

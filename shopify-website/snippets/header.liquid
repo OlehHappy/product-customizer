@@ -1,0 +1,60 @@
+<div class="header-container">
+    <div id="topbar">
+        <div class="banner">
+            <div class="container">
+                {% include 'displayBanner' %}
+            </div>
+        </div>
+        <div class="nav">
+            <div class="container">
+                {% include 'displayNav' %}
+            </div>
+        </div>
+    </div>
+    <div id="header-main">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="header-content">
+                    <div class="header-left">
+                        <div id="header_logo">
+                            {% if template == 'index' %}
+                                <h1 class="" itemscope itemtype="http://schema.org/Organization">
+                            {% else %}
+                                <div class="" itemscope itemtype="http://schema.org/Organization">
+                            {% endif %}
+                                {% if settings.logo_use_image %}                                                                                        
+                                    <a href="/" itemprop="url">
+                                        <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+                                    </a>
+                                {% else %}
+                                    <a href="/" itemprop="url">{{ shop.name }}</a>
+                                {% endif %}
+                            {% if template == 'index' %}
+                                </h1>
+                            {% else %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        {% include 'displayTop' %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-bottom visible-md visible-lg">
+                <div class="row no-gutter">
+                    <div class="vertical-container">
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            {% include 'block-verticalmenu' %}
+                        </div>
+                    </div>
+                    <div id="search_block_top" class="col-md-9 col-sm-12 col-xs-12">
+                        {% include 'block-search' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

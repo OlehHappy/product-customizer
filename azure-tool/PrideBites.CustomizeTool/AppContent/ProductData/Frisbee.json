@@ -1,0 +1,110 @@
+﻿{
+    "category": "toys",
+    "name": "Frisbee",
+    "displayName": "PRIDEBITES FRISBEE",
+    "description": "Our award winning PrideBites dog toys are sure to please your four legged friends. They're lightweight, which makes them great for dogs of all size. They float, squeak and are machine washable, making them one of the most versatile play toys ever!",
+    "basePrice": 24.99,
+    "helpText": {
+        "Frisbee": "Need some help? I'm here to assist you through the process! First, choose your favorite color for your frisbee, then click “Personalize” to add your dog's name and picture.",
+        "styles": "A little extra stlye never hurt anyone.",
+        "personalize": "Great color choice! Now write your dog's name then click “photo” to add their image.",
+        "attribute-Photo": "Find at least two of your favorite photos of your dog and upload them here. "
+    },
+    "predefinedSelections": [
+        { "color": "green" },
+        { "color": "pink" },
+        { "color": "red" },
+        { "color": "yellow" },
+        { "color": "blue" }
+    ],
+    "externalIds": {
+        "keyFields": [ "productName" ],
+        "variants": { "Frisbee": "414114365" }
+    },
+    "views": [ { "id": "default", 
+                 "layers": [{"attributeName": "color", "displayType": "image"},
+                            {"attributeName": "Name", "displayType": "text", "defaults": {"drawMode":"curved", "textColor":"White", "Size": 40, "font":"PlayfulPup.TTF", "x": 395, "y":230, "h":5, "w": 270}},
+							{"attributeName": "Photo", "displayType": "upload", "defaults": { "displayMode": "sample", "imgSrc": "placeholder", "x": 320, "y":110, "h":260, "w": 220, "x2": 320, "y2":110, "h2":260, "w2": 220}}
+                           ]
+                 },
+				 { "id": "side",
+					"layers": [{"attributeName": "color", "displayType": "image"},
+                            {"attributeName": "Name", "displayType": "text", "defaults": {"drawMode":"curved", "textColor":"White", "Size": 40, "font":"PlayfulPup.TTF", "x": 395, "y":230, "h":5, "w": 270}},
+							{"attributeName": "Photo", "displayType": "upload", "defaults": { "displayMode": "sample", "imgSrc": "placeholder", "x": 330, "y":110, "h":260, "w": 220, "x2": 330, "y2":110, "h2":260, "w2": 220}}
+                           ]
+				 }],
+    "steps": [		
+        {
+			"id": "styles",
+            "name": "DESIGN",
+			"icon": "fa-th-large",
+			"type": "tab", 			
+            "attributes": [
+                {
+                    "name": "color",
+                    "viewId": "",
+                    "customizations": [
+                        {
+                            "field": "color",
+							"label" : "Choose a frisbee color",
+							"selectedValue": "blue",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                { 
+                                    "name": "Colors", 
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+                                                   { "value": "red", "display": "d00129", "label":"Red"},
+													{ "value": "blue", "display": "1cb2d1", "label":"Blue"},
+													{ "value": "yellow", "display": "fbc536", "label":"Yellow"},
+													{ "value": "green", "display": "03a950", "label":"Green"},
+													{ "value": "pink", "display": "d662a7", "label":"Pink"}
+                                                ]
+                                }]
+                        }
+                    ]
+                }
+            ]
+        },
+		{
+			"id": "personalize",
+			"icon": "fa-pencil",
+            "name": "PERSONALIZE",
+			"type": "list",			
+            "attributes": [
+                {
+                    "name": "Name",
+                    "customizations": [
+                        {
+                            "field": "text",
+							"display" : "Add your dog's name",
+							"selectedValue": "Your dog's name",
+                            "type": "text"
+                        }
+                    ]
+                },
+				{
+					"name" : "Photo",
+					"staticContent" : "#staticContentUploadTemplate",
+					"customizations":[
+					 {
+                            "field": "image1",
+							"label" : "Add your dog's image",
+							"labelText" : "Please upload at least 2 for best results. *All dog images are hand drawn by our talented designers and may not come out as exact as you want but we promise you'll like them :)",
+                            "type": "imageUpload"
+                        },
+						{
+                            "field": "image2",
+                            "type": "imageUpload"
+                        },
+						{
+                            "field": "image3",
+                            "type": "imageUpload"
+                        }
+					]
+				}
+            ]
+        }
+    ]
+}

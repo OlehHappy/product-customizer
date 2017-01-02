@@ -1,0 +1,129 @@
+$step-divider: 1px solid #e5e5e5;
+
+.pbc-design-step {
+  border-bottom: $step-divider;
+  padding: 10px 0;
+
+  &:first-of-type {
+    border-top: $step-divider;
+  }
+
+  h2 {
+    color: #666666;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+
+    .pbc-design-step-plus {
+      float: right;
+    }
+
+    &:hover {
+      font-weight: 900;
+    }
+  }
+
+  h3 {
+    color: #666666;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 10px 0;
+    text-transform: none;
+  }
+
+  .pbc-design-step-help {
+    clear: both;
+    color: #666666;
+    font-size: 11px;
+    text-align: center;
+    strong, b {
+      font-weight: 900;
+    }
+    a {
+      color: #28abe3;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pbc-next-step-link {
+    color: #28abe3;
+    display: block;
+    font-size: 12px;
+    margin: 5px 0 0;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  &.current {
+    h2 {
+      color: #333333;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.pbc-design-step.step-size {
+  .design-option {
+    max-width: 100%;
+  }
+
+  .pbc-image-radio-img {
+    border: 1px solid #e5e5e5;
+    margin: 0 0 7px;
+    padding: 5px;
+
+    &.selected {
+      border-color: transparent;
+    }
+  }
+}
+
+.pbc-design-step.step-name {
+  .pbc-image-radio-img-container {
+    float: left;
+    height: auto;
+    margin-right: 3%;
+    max-width: 22%;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .pbc-image-radio-img {
+      width: 100%;
+    }
+  }
+
+  input, select {
+    box-sizing: border-box;
+    display: block;
+    margin: 10px 0;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+  }
+
+  input {
+    float: left;
+    margin-top: 0;
+  }
+
+  button {
+    @include button(#5d5d5d);
+    float: right;
+    margin: 0;
+    padding: 8px;
+    width: 35%;
+  }
+}
+
+.pbc-design-step.step-photo {
+  overflow: hidden;
+}

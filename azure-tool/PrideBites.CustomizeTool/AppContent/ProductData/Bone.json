@@ -1,0 +1,138 @@
+﻿{
+	"category": "toys",
+    "displayName": "PRIDEBITES BONE",
+    "name": "Bone",
+    "description": "Our award winning PrideBites dog toys are sure to please your four legged friends. They're lightweight, which makes them great for dogs of all size. They float, squeak and are machine washable, making them one of the most versatile play toys ever!",
+    "basePrice": 19.99,
+	"helpText" : { "Bone" :"Need some help? I'm here to assist you through the process! First, choose your favorite color for your bone, then click “Personalize” to add your dog's name.",
+				   "styles" : "A little extra stlye never hurt anyone.",
+				   "personalize" :"Great color choice! Now write your dog's name and choose your favorite font and color choice."
+				 },
+	"predefinedSelections": [
+		{ "color": "green" },
+		{ "color": "pink" },
+        { "color": "red" },
+		{ "color": "yellow" },
+		{ "color": "blue" }
+	],
+     "externalIds": {
+        "keyFields" : ["productName"], 
+        "variants"  : { "Bone" : "414109377"}
+    },
+    "views": [ { "id": "default", 
+                 "layers": [{"attributeName": "color", "displayType": "image"},
+                            {"attributeName": "dogName", "displayType": "text", "defaults": {"textColor":"red", "align": "center", "size": 120, "font":"PlayfulPup.TTF", "x":	160, "y":170, "h":180, "w": 540}}
+                           ]
+               }],
+    "steps": [		
+        {
+			"id": "styles",
+            "name": "DESIGN",
+			"icon": "fa-th-large",
+			"type": "tab", 			
+            "attributes": [
+                {
+                    "name": "color",
+                    "customizations": [
+                        {
+                            "field": "color",
+							"label": "Choose a bone color",
+							"selectedValue": "pink",
+                            "type": "groupedColorPicker",
+							"groups": [
+                                { 
+                                    "name": "Colors", 
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+                                                   { "value": "red", "display": "d00129", "label":"Red"},
+													{ "value": "blue", "display": "1cb2d1", "label":"Blue"},
+													{ "value": "yellow", "display": "fbc536", "label":"Yellow"},
+													{ "value": "green", "display": "03a950", "label":"Green"},
+													{ "value": "pink", "display": "d662a7", "label":"Pink"}
+                                                ]
+                                }]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "personalize",
+            "name": "PERSONALIZE",
+			"icon": "fa-pencil",
+			"type": "list",			
+            "attributes": [
+                {
+                    "name":  "dogName",
+                    "customizations": [
+                        {
+                            "field": "text",
+							"display" : "Add your dog's name",
+							"selectedValue": "Your dog's name",
+                            "type": "text"
+                        },
+                        {
+                            "field": "font",
+							"label" : "Choose a font",
+							"selectedValue": "BigDog.TTF",
+                            "type": "dropDown",
+                            "options": [
+								{
+									"value": "PlayfulPup.TTF",
+									"display": "Playful Pup"
+								},
+								{
+									"value": "ClassyCanine.ttf",
+									"display": "Classy Canine"
+								},
+								{
+									"value": "BigDog.TTF",
+									"display": "Big DOG"
+								}
+                            ]
+                        },
+                       {
+                            "field": "textColor",
+							"label" : "Choose text color",
+							"selectedValue": "Black",
+                            "type": "groupedColorPicker",
+                            "groups": [
+								{ 
+                                    "name": "Bold", 
+									"label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+													{ "value": "Red", "display": "c2002f", "label":"Red"},
+													{ "value": "Orange", "display": "f68d29", "label":"Orange"},
+													{ "value": "Yellow", "display": "ffd923", "label":"Yellow"},
+                                                    { "value": "Teal", "display": "9cd8d8", "label":"Teal"},
+								                    { "value": "Green", "display": "009877", "label":"Green"},
+													{ "value": "Blue", "display": "005cb8", "label":"Blue"},
+								                    { "value": "Purple", "display": "853175", "label":"Purple"},
+                                                    { "value": "Pink", "display": "e51992", "label":"Pink"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+									"label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000", "label": "Black"},
+													{ "value": "White", "display": "ffffff", "label": "White"},
+													{ "value": "LightGray", "display": "b4b2b2", "label": "LightGray"},
+													{ "value": "Tan", "display": "cfb4a7", "label": "Tan"},
+													{ "value": "Brown", "display": "5d3326", "label": "Brown"},
+													{ "value": "DarkGreen", "display": "404726", "label": "DarkGreen"},
+													{ "value": "NavyBlue", "display": "003763", "label": "NavyBlue"},
+								                    { "value": "Wine", "display": "79232e", "label": "Wine"	}
+                                                ]
+                                }
+							]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

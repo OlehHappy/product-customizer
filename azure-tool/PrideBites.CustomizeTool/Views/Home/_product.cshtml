@@ -1,0 +1,38 @@
+﻿<script type="text/x-underscore" id='productTemplate'>
+    <div class="panel-group" id="stepAccordian">
+        @*<div class="panel panel-primary" id="step-product">
+            <div class=" panel-heading" data-toggle="collapse" data-parent="#stepAccordian" href="#collapse-products">
+                <h4 class="panel-title"><i class="fa fa-paw icon"></i>PRODUCTS</h4>
+            </div>
+            <div class="panel-collapse collapse" id="collapse-products">
+                <div class="panel-body tab-content" style="text-align:center;">
+                    <p style="padding-top:20px;">Are you sure you would like to go back to choose a different product?</p>
+                    <p>Current customizations will be discarded.</p>
+                    </div>
+            </div>
+        </div>*@
+        <% _.each(product.steps, function(step){  %>
+            <%= _.template( $('#stepTemplate').html(), {"product":product, "step":step}) %>
+        <%});%>
+        <div id="step-complete">
+            <button id="btnSave" class="btn"><i class="fa fa-shopping-cart icon"></i><span>COMPLETE MY ORDER</span></button>
+
+            <div class="delivery-notice">Estimated delivery: 4 - 6 weeks</div>
+            <div class="disclaimer">*All products may slightly vary in color and design depending on the type of screen you are looking through.</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-underscore" id='viewTemplate'>
+    <% if(views.length > 1){ %>
+    <% $.each(views, function(index,view){  %>
+    <% var thumbSrc = window.ProductImageRoot + product.name + "/" + view.id + '/_thumb.png'  %>
+    <div style="display:inline-block;">
+        <img class="viewSelection" data-viewid="<%=view.id%>" style="height:80px;" src="<%= thumbSrc %>" />
+        <div>View <%= index + 1 %></div>
+    </div>
+    <%}); }%>
+</script>
+
+
+@Html.Partial("_steps")

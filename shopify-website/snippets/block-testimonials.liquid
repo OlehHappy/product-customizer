@@ -1,0 +1,58 @@
+{% if load_testimonial %}
+	{% assign testimonial_start = load_testimonial %}
+	{% assign testimonial_end = load_testimonial %}
+{% else %}
+	{% assign testimonial_start = 1 %}
+	{% assign testimonial_end = 4 %}
+{% endif %}
+{% assign columns_carousel = 1 %}
+{% assign blogs_home = blogs['news'].articles limit:settings.home_blogs_limit %}
+<div id="block_testimonials" class="block">
+	{% if display_title && settings.testimonials_title !="" %}
+    	<h3 class="page-subheading">{{ settings.testimonials_title }}</h3>
+    {% endif %}
+	<div class="block_content">
+		<div class="owl-carousel clearfix">
+          {% for i in (testimonial_start..testimonial_end) %}
+          
+          {% capture testimonials_information %}testimonials_information_{{i}}{% endcapture %}
+          {% capture testimonials_name %}testimonials_name_{{i}}{% endcapture %}
+          {% capture testimonials_regency %}testimonials_regency_{{i}}{% endcapture %}
+          {% capture testimonials_image %}testimonials_image_{{i}}.png{% endcapture %}
+          <div class="item">
+            <div class="testimonial">
+              <div class="testimonial-info">{{ settings[testimonials_information] }}</div>
+              <div class="clearfix"></div>
+              <div class="testimonial-cont">
+                <div class="testimonial-image">
+                  {{ testimonials_image | asset_url | img_tag: settings[testimonials_name], "img-responsive" }}
+                </div>
+                <div class="testimonial-bottom">
+                  <div class="testimonial-name">
+                    {{ settings[testimonials_name] }}
+                  </div>
+                  <div class="testimonial-regency">
+                    {{ settings[testimonials_regency] }}
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          {% endfor %}
+      	</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+      $('#block_testimonials .owl-carousel').each(function(){
+        $(this).owlCarousel({
+          items : {{ columns_carousel }},
+          singleItem : true,
+          lazyLoad : true,
+          navigation : false
+          });
+      });
+	});
+</script>

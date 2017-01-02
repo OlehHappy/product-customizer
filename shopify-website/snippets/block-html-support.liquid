@@ -1,0 +1,23 @@
+<div class="block_support">
+	<div class="row">
+		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+			<div class="html-custom">
+				{{ settings.support_information }}
+				<div class="html-call html-box">
+					<p>Call the customer support</p>
+					<p class="html-number"><em class="fa fa-mobile">&nbsp;</em>{{ settings.support_mobile }}</p>
+				</div>
+				<span class="html-or">OR</span>
+				<div class="html-send html-box">
+					<p>Send us a message</p>
+					<p class="html-email"><em class="fa fa-envelope">&nbsp;</em>{{ settings.support_email }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+			<div class="effect"><a class="overlay">&nbsp;</a>
+			{{ 'img-support.png' | asset_url | img_tag: settings.support_email, "img-responsive" }}
+			</div>
+		</div>
+	</div>
+</div>

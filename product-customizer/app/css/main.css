@@ -1,0 +1,36 @@
+.pbc-preview {
+  text-align: center; }
+
+.pbc-preview-layer {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+  .pbc-preview-layer:first-child {
+    position: relative; }
+
+.pbc-preview-option {
+  cursor: pointer; }
+  .pbc-preview-option.selected {
+    opacity: 0.5; }
+
+.pbc-pattern-select {
+  position: relative; }
+  .pbc-pattern-select:hover .pbc-pattern-options {
+    display: block; }
+
+.pbc-pattern-options {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: none;
+  font-size: 0;
+  padding: 5px;
+  position: absolute;
+  text-align: center;
+  top: 90%;
+  width: 300px;
+  z-index: 1; }
+  .pbc-pattern-options .pbc-pattern-option {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 3px; }

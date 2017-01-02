@@ -1,0 +1,23 @@
+{% comment %}
+    Show number of items in the cart and total cost in the /cart link
+    Ajaxify Cart Notes:
+    - #cartToggle toggles cart visibility (drawer or modal)
+    - #cartCount updates the total number of items in the cart
+    - #cartCost updates the total cost of the cart
+    - Documentation:  http://shopify.com/timber#ajax-cart
+{% endcomment %}
+<div id="cart" class="blockcart_top clearfix">
+    <div class="media heading">
+        <a href="/cart" id="CartToggle">
+            <div class="title-cart pull-left">
+                <span class="fa fa-shopping-cart "></span>
+            </div>
+            <div class="cart-inner media-body">
+                <span class="cart-title">{{ 'layout.cart.title' | t }}: </span>
+                <span id="CartCount">{{ cart.item_count }}</span>
+                <span>{{ 'layout.cart.items_count' | t: count: cart.item_count }} - </span>
+                <span id="CartCost">{{ cart.total_price | money }}</span>
+            </div>
+        </a>
+    </div>
+</div>

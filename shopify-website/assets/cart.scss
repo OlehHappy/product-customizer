@@ -1,0 +1,29 @@
+/* Custom Cart Styles */
+.cart-item-properties .cart-item-property:nth-child(n+3) {
+  display: none;
+}
+
+.cart-item-properties .show-less, .cart-item-properties .show-more {
+  display: block;
+  margin-top: 10px;
+}
+
+.cart-item-properties .show-less {
+  display: none;
+}
+
+.cart-item-properties.all-properties .cart-item-property {
+  display: block;
+}
+
+.cart-item-properties.all-properties .show-more {
+  display: none;
+}
+
+.cart-item-properties.all-properties .show-less {
+  display: block;
+}
+
+.cart-item-properties.all-properties .cart-item-property:nth-child(n+3) {
+  display: block;
+}

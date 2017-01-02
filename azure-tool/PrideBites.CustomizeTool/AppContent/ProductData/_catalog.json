@@ -1,0 +1,18 @@
+﻿{
+	"title": "Choose a Product",
+	"categories":[{ "name": "default",
+					"items": [{"name":"Bed"},
+							  {"name":"Collar"},
+							  {"name":"Placemat"},
+                              {"name":"Blanket"},
+							  {"name":"dogToy", "isCategory":true},
+							  {"name":"Tshirt"},
+							  {"name":"Leash"}]
+				  },
+				  {"name": "dogToy",
+				   "items": [{"name":"X-Person"},
+							 {"name":"Frisbee"},
+							 {"name":"Bone"}]
+				  }
+	]
+}	

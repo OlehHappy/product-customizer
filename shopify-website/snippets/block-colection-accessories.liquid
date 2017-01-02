@@ -1,0 +1,30 @@
+<div id="category_accessories_block">
+    {% if settings.block_accessories_title != blank %}
+        <h4 class="page-subheading">
+            {{ settings.block_accessories_title }}
+        </h4>
+    {% endif %}
+    <div class="block_content clearfix">
+       <div class="row">
+          {% for i in (1..6) %}
+              {% capture background %}background_accessories_{{i}}.png{% endcapture %}
+         	  {% capture title %}block_accessories_title_{{i}}{% endcapture %}
+         	  {% capture listlinks %}block_accessories_listlinks_{{i}}{% endcapture %}
+			  {% assign block_accessories_title = settings[title] %}
+              {% assign block_accessories_listlinks = settings[listlinks] %}
+              <div class="accessories-wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="clearfix" style="background: url({{ background | asset_url }}) no-repeat scroll left center transparent;">
+                      <h4 class="title-heading">{{ block_accessories_title }}</h4>
+                      <ul>
+                        {% for link in linklists[block_accessories_listlinks].links %}
+                          <li class="item">
+                            <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          {% endfor %}
+       </div>
+    </div>
+</div>

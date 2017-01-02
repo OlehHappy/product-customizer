@@ -1,0 +1,34 @@
+﻿@*@Html.Partial("_confirmBackToCatalog")*@
+
+<script type="text/x-underscore" id="catalogTemplate">
+    <div class="catalog">
+        <div class="title text-center"><%= title%></div>
+        <% _.each(categories, function(category){  %>
+            <%= _.template( $('#categoryTemplate').html(), category) %>
+        <%});%>
+    </div>
+</script>
+
+<script type="text/x-underscore" id="categoryTemplate">
+    <% var isSubCat = name != "default"; %>
+
+    <div class="category" id="category-<%= name%>" style="display:none;">
+        <% if( isSubCat){%>
+           <a data-bind="click: function(){ userState.selectedCategory('default'); }"><span id="btnBack" class="glyphicon glyphicon-arrow-left"></span></a>
+        <% } %>
+        <ul>
+            <% _.each(items, function(categoryItem){  %>
+            <%= _.template( $('#categoryItemTemplate').html(), categoryItem) %>
+            <%});%>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</script>
+
+<script type="text/x-underscore" id="categoryItemTemplate">
+        <% if(typeof isCategory != "undefined" && isCategory == true){ %>
+        <li data-bind="click: function(){ userState.selectedCategory('<%= name %>'); }"><img src="@Shopify.ContentLocation.CatalogContent_GetPath("")<%= name %>.jpg" alt="custom <%= name %>" /></li>
+        <% }else{%>
+        <li data-bind="click: function(){ userState.selectedProduct('<%= name %>'); }"><img src="@Shopify.ContentLocation.CatalogContent_GetPath("")<%= name %>.jpg" alt="custom <%= name %>" /></li>
+        <% }%>
+</script>

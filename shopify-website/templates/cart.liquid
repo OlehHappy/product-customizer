@@ -1,0 +1,168 @@
+<script>if (typeof Shopify === "undefined") var Shopify = {}; Shopify.cart = {{ cart | json }};</script> 
+<div id="freegift_cart_container" name="sca.fg.cart" class="sca-fg-cart-container" style="display: none;">
+  <div id="freegift_message" class="owl-carousel"></div>
+</div> 
+<div id="sca-fg-slider-cart" style="display: none;">
+  <div class="sca-fg-cart-title">
+    <strong>Select your free gift (s)</strong>
+  </div>
+  <div id="sca_freegift_list" class="owl-carousel"></div>
+</div>
+<div id="sca_fg_cart">
+<section id="columns" class="columns-container">
+    <div id="columns" class="container">
+        <div class="row">
+            <div id="center_column" class="center_column col-md-12">
+                <div id="cart-page">
+                    {% if cart.item_count > 0 %}
+                        <form action="/cart" method="post" novalidate class="cart">
+                            
+                            <h1>{{ 'cart.general.title' | t }}</h1>
+                            <div class="cart_header_labels clearfix">
+                                <div class="label_item col-xs-12 col-sm-1 col-md-1">
+                                    <div class="cart_product first_item">
+                                        {{ 'cart.label.product' | t }}
+                                    </div>
+                                </div>
+                                <div class="label_item col-xs-12 col-sm-4 col-md-4">
+                                    <div class="cart_description item">
+                                        {{ 'cart.label.description' | t }}
+                                    </div>
+                                </div>
+                                <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                                    <div class="cart_price item">
+                                        {{ 'cart.label.price' | t }}
+                                    </div>
+                                </div>
+                                <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                                    <div class="cart_quantity item">
+                                        {{ 'cart.label.quantity' | t }}
+                                    </div>
+                                </div>
+                                <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                                    <div class="cart_total item">
+                                        {{ 'cart.label.total' | t }}
+                                    </div>
+                                </div>
+                                <div class="label_item col-xs-12 col-sm-1 col-md-1">
+                                    <div class="cart_delete last_item">
+                                        {{ 'cart.label.remove' | t }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% for item in cart.items %}
+                                <div class="list_product_cart clearfix" data-id="{{ item.id }}">
+                                    {% assign image_size = settings.product_cart_imagesize %}
+                                    <div class="cpro_item col-xs-12 col-sm-1 col-md-1">
+                                        <div class="cpro_item_inner">
+                                            <a href="{{ item.url | within: collections.all }}" class="cart__image">
+                                                <img class="img-responsive" src="{{ item | img_url: 'image_size' }}" alt="{{ item.title | escape }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="cpro_item col-xs-12 col-sm-4 col-md-4">
+                                        <div class="cpro_item_inner">
+                                            <a href="{{ item.url }}" class="product_name">
+                                                {{ item.product.title }}
+                                            </a>
+                                            {% unless item.variant.title contains 'Default' %}
+                                                <small>{{ item.variant.title }}</small>
+                                            {% endunless %}
+                                            {% if settings.cart_vendor_enable %}
+                                                <p>{{ item.vendor }}</p>
+                                            {% endif %}
+                                            {% if item.properties %}
+                                          		<br>
+                                                <br>
+	                                            <div class="cart-item-properties">
+                                                    {% for p in item.properties %}
+                                                        {% unless p.last == blank %}
+                                                  			<div class="cart-item-property">
+                                                                <strong>{{ p.first | capitalize }}:</strong>
+                                                                {% if p.last contains '/uploads/' %}
+                                                                    <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                                                                {% else %}
+                                                                    {{ p.last }}
+                                                                {% endif %}
+                                                                <br>
+			                                                </div>
+                                                        {% endunless %}
+                                                    {% endfor %}
+	                                                <a class="show-more" href="#">+ Show More</a>
+	                                                <a class="show-less" href="#">- Show Less</a>
+	                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+                                        <div class="cpro_item_inner">
+                                            <span class="price product-price">{{ item.price | money }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
+                                        <div class="cpro_item_inner">
+                                            <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}">
+                                        </div>
+                                    </div>
+                                    <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+                                        <div class="cpro_item_inner">
+                                            <span class="price product-price">{{ item.line_price | money }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="cpro_item col-xs-12 col-sm-1 col-md-1">
+                                        <div class="cpro_item_inner">
+                                            <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove" data-id="{{ item.id }}">
+                                                <small>{{ 'cart.general.remove' | t }}</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                          <div style="width: 100%; text-align: center; padding-top: 20px;">
+                            <p style="border: 1px solid #d5d5d5; padding: 10px; font-weight: 900;">Please Make Sure To Review Your Order Above To Ensure Accuracy (For Example: Name, Font, Font Color, Etc)</p>
+                          </div>
+                            <div class="list_button_cart clearfix">
+                                <div class="note_item col-xs-12 col-sm-6 col-md-6">
+                                    {% if settings.cart_notes_enable %}
+                                        <div class="note_cart">
+                                            <label class="control-label" for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+                                            <textarea name="note" class="form-control" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 text-right">
+                                    <p>
+                                        <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
+                                        <span class="h3 cart__subtotal">{{ cart.total_price | money }}</span>
+                                    </p>
+                                    <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
+                                    <a class="btn con-ajax-cart btn-outline" href="/collections/all" title="{{ 'cart.general.continue_shopping' | t }}">{{ 'cart.general.continue_shopping' | t }}</a>
+                                    <input type="submit" name="update" class="btn btn-outline update-cart" style="background-color: #e7e7e7 !important; border:1px solid #e7e7e7 !important; color: #777777 !important; font-size: 16px !important;" value="{{ 'cart.general.update' | t }}">
+                                    <input type="submit" name="checkout" class="btn btn-outline" style="background-color: #db3340 !important; border:1px solid #db3340; font-size: 16px !important;" value="CHECKOUT">
+                                    {% if additional_checkout_buttons %}
+                                        <p style="margin-top: 10px; margin-right: 30px;">{{ content_for_additional_checkout_buttons }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                        <p class="cart_navigation clearfix">
+                            <a class="btn btn-outline" href="/collections/all" title="{{ 'cart.general.continue_shopping' | t }}"><i class="fa fa-chevron-left" style="margin-right:10px;"></i> {{ 'cart.general.continue_shopping' | t }}</a>
+                        </p>
+                    {% else %}
+                        <h2>{{ 'cart.general.title' | t }}</h2>
+                        <p class="alert alert-warning cart-empty">{{ 'cart.general.empty' | t }}</p>
+                        <p class="cart-empty-continue">{{ 'cart.general.continue_browsing_html' | t }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+  $('.show-more, .show-less').on('click', function() {
+	$(this).parent().toggleClass('all-properties');
+    return false;
+  });
+</script>
+</div>

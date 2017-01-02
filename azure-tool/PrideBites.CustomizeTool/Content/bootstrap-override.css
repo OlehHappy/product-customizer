@@ -1,0 +1,74 @@
+﻿.btn-primary {
+color: #fff;
+background-color: #9b2521;
+border-color: #9b2521;
+border-radius: 2px;
+}
+.btn-default {
+color: #333;
+background-color: #f2f2f2;
+border: 1px solid #d0d2d3;
+}
+
+a:focus{
+    outline:none;
+}
+
+#stepAccordian .panel-heading {
+    background-color:#C1C1C1;
+    /*border: 1px solid #d0d2d3;*/
+}
+#stepAccordian .panel-heading.active {
+    background-color:#1e6faf;
+    /*border: 1px solid #d0d2d3;*/
+}
+
+
+#stepAccordian .panel-primary>.panel-heading,
+#stepAccordian .panel-primary{
+    border-color:#d0d2d3;
+}
+
+.panel-group .panel {
+    border-bottom: none;
+}
+
+.panel-primary>.panel-heading+.panel-collapse .panel-body {
+ border-top:none;
+}
+
+.groupedColorPicker {
+margin-left:-20px;
+margin-right:-20px;
+}
+
+.groupedColorPicker .panel-primary > .panel-heading,
+.groupedColorPicker .panel-primary {
+border-left:none;
+border-right:none;
+}
+.groupedColorPicker .panel-title {
+    text-align:left;
+    display:block;
+    font-weight:bold;
+    font-size: 22px;
+    font-size: 1.375rem;
+    }
+.groupedColorPicker .panel-heading {
+    background-color: #f2f2f2 !important;
+    color: #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 10px;
+    font-size: 0.625rem;
+}
+.groupedColorPicker .panel-heading .active {
+    background-color: #fff !important;
+    border-bottom: none !important;
+}
+.groupedColorPicker .panel-heading img { vertical-align:top; padding:5px;}
+.groupedColorPicker .panel-body {
+        min-height: inherit;
+}
+
+.groupedColorPicker .panel-subtitle{ color: #333 }

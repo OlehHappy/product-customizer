@@ -1,0 +1,1308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69D7022D-33B8-489A-8C3E-747FF0D977A0}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrideBitesCustomizer</RootNamespace>
+    <AssemblyName>PrideBitesCustomizer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\DotNetOpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Mandrill">
+      <HintPath>..\packages\Mandrill.1.0.103.0\lib\net40\Mandrill.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DynamicImageController.cs" />
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\signature.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Domain\Models\ShareDesignEmailData.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ExtensionMethods\IEnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\ExtensionMethods\ObjectToDictionaryHelper.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Domain\Services\MailSender.cs" />
+    <Compile Include="ShopifyAuthorize.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppContent\arrow.png" />
+    <Content Include="AppContent\blank.png" />
+    <Content Include="AppContent\Catalog\bed.jpg" />
+    <Content Include="AppContent\Catalog\bone.jpg" />
+    <Content Include="AppContent\Catalog\bowl.jpg" />
+    <Content Include="AppContent\Catalog\collar.jpg" />
+    <Content Include="AppContent\Catalog\disc.jpg" />
+    <Content Include="AppContent\Catalog\dogToy.jpg" />
+    <Content Include="AppContent\Catalog\leash.jpg" />
+    <Content Include="AppContent\Catalog\tshirt.jpg" />
+    <Content Include="AppContent\Catalog\x-person.jpg" />
+    <Content Include="AppContent\clippy.png" />
+    <Content Include="AppContent\EmailImages\email-logo.png" />
+    <Content Include="AppContent\EmailImages\footer-email.png" />
+    <Content Include="AppContent\EmailImages\footer-facebook.png" />
+    <Content Include="AppContent\EmailImages\footer-insta.png" />
+    <Content Include="AppContent\EmailImages\footer-link.png" />
+    <Content Include="AppContent\EmailImages\footer-tube.png" />
+    <Content Include="AppContent\EmailImages\footer-twitter.png" />
+    <Content Include="AppContent\icons\cart-icon.png" />
+    <Content Include="AppContent\icons\customize-icon-active.png" />
+    <Content Include="AppContent\icons\customize-icon.png" />
+    <Content Include="AppContent\icons\products-icon-active.png" />
+    <Content Include="AppContent\icons\products-icon.png" />
+    <Content Include="AppContent\icons\style-icon-active.png" />
+    <Content Include="AppContent\icons\style-icon.png" />
+    <Content Include="AppContent\LightboxImages\bed-size-chart.jpg" />
+    <Content Include="AppContent\LightboxImages\bed-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\blanket-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\coat-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\collar-size-chart.jpg" />
+    <Content Include="AppContent\LightboxImages\bed-box.jpg" />
+    <Content Include="AppContent\LightboxImages\bed-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\blanket-box.jpg" />
+    <Content Include="AppContent\LightboxImages\blanket-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\bone-box.jpg" />
+    <Content Include="AppContent\LightboxImages\bone-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\coat-box.jpg" />
+    <Content Include="AppContent\LightboxImages\collar-box.jpg" />
+    <Content Include="AppContent\LightboxImages\collar-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\collar-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\frisbee-box.jpg" />
+    <Content Include="AppContent\LightboxImages\frisbee-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\frisbee-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\hoodie-box.jpg" />
+    <Content Include="AppContent\LightboxImages\hoodie-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\hoodie-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\leash-box.jpg" />
+    <Content Include="AppContent\LightboxImages\generic-size-chart.jpg" />
+    <Content Include="AppContent\LightboxImages\coat-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\leash-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\leash-size-chart.jpg" />
+    <Content Include="AppContent\LightboxImages\leash-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\placemat-box.jpg" />
+    <Content Include="AppContent\LightboxImages\placemat-examples.jpg" />
+    <Content Include="AppContent\LightboxImages\placemat-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\toy-welcome.jpg" />
+    <Content Include="AppContent\LightboxImages\what-is-a-pridebite.jpg" />
+    <Content Include="AppContent\logo.png" />
+    <Content Include="AppContent\OptionImages\anchor1.jpg" />
+    <Content Include="AppContent\OptionImages\banner-bone.png" />
+    <Content Include="AppContent\OptionImages\banner-hardware.png" />
+    <Content Include="AppContent\OptionImages\banner-oval.png" />
+    <Content Include="AppContent\OptionImages\banner-vintage.png" />
+    <Content Include="AppContent\OptionImages\blank.png" />
+    <Content Include="AppContent\OptionImages\bones1.png" />
+    <Content Include="AppContent\OptionImages\bones2.png" />
+    <Content Include="AppContent\OptionImages\bones3.png" />
+    <Content Include="AppContent\OptionImages\bones4.png" />
+    <Content Include="AppContent\OptionImages\bones5.jpg" />
+    <Content Include="AppContent\OptionImages\bright-icon.png" />
+    <Content Include="AppContent\OptionImages\Camoblack.png" />
+    <Content Include="AppContent\OptionImages\Camoblue.png" />
+    <Content Include="AppContent\OptionImages\Camogreen.png" />
+    <Content Include="AppContent\OptionImages\Camopink.png" />
+    <Content Include="AppContent\OptionImages\chevron1.png" />
+    <Content Include="AppContent\OptionImages\chevron2.png" />
+    <Content Include="AppContent\OptionImages\chevron3.png" />
+    <Content Include="AppContent\OptionImages\chevron4.png" />
+    <Content Include="AppContent\OptionImages\chevron5.jpg" />
+    <Content Include="AppContent\OptionImages\circdots1.png" />
+    <Content Include="AppContent\OptionImages\circdots2.png" />
+    <Content Include="AppContent\OptionImages\circdots3.png" />
+    <Content Include="AppContent\OptionImages\circdots4.png" />
+    <Content Include="AppContent\OptionImages\diamonds1.jpg" />
+    <Content Include="AppContent\OptionImages\dots1.png" />
+    <Content Include="AppContent\OptionImages\dots2.png" />
+    <Content Include="AppContent\OptionImages\dots3.png" />
+    <Content Include="AppContent\OptionImages\dots4.png" />
+    <Content Include="AppContent\OptionImages\floral1.jpg" />
+    <Content Include="AppContent\OptionImages\netural-icon.png" />
+    <Content Include="AppContent\OptionImages\pattern-icon.png" />
+    <Content Include="AppContent\OptionImages\paw1.png" />
+    <Content Include="AppContent\OptionImages\paw2.png" />
+    <Content Include="AppContent\OptionImages\paw3.png" />
+    <Content Include="AppContent\OptionImages\paw4.png" />
+    <Content Include="AppContent\OptionImages\photo-do.png" />
+    <Content Include="AppContent\OptionImages\photo-dont.png" />
+    <Content Include="AppContent\OptionImages\plaid1.png" />
+    <Content Include="AppContent\OptionImages\plaid2.png" />
+    <Content Include="AppContent\OptionImages\plaid3.png" />
+    <Content Include="AppContent\OptionImages\plaid4.png" />
+    <Content Include="AppContent\OptionImages\plaid5.jpg" />
+    <Content Include="AppContent\OptionImages\stripes1.png" />
+    <Content Include="AppContent\OptionImages\stripes2.png" />
+    <Content Include="AppContent\OptionImages\stripes3.png" />
+    <Content Include="AppContent\OptionImages\stripes4.png" />
+    <Content Include="AppContent\OptionImages\swirl1.jpg" />
+    <Content Include="AppContent\OptionImages\triangles1.jpg" />
+    <Content Include="AppContent\ProductData\Bed.json" />
+    <Content Include="AppContent\ProductData\hoodie.json" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-black.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-blue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-bonesnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-bonespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-brown.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-camopink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-circledotsgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-green.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-orange.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-ornage.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-pawsgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-pawspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-pink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-purple.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-red.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-tan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-teal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-white.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-wine.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\side-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-black.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-blue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-bonesnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-bonespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-brown.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-camopink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-circledotsgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-green.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-orange.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-pawsgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-pawspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-pink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-purple.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-red.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-tan.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-teal.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-white.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-wine.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\default\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-black.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-blue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-bonesnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-bonespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-brown.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-camopink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-circledotsgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-green.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-orange.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-pawsgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-pawspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-pink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-purple.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-red.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-tan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-teal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-white.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-wine.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\side-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-black.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-blue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-bonesnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-bonespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-brown.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-camopink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-circledotsgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-green.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-orange.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-pawsgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-pawspink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-pink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-purple.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-red.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-tan.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-teal.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-white.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-wine.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bed\front\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Bed\options\size-large.png" />
+    <Content Include="AppContent\ProductImages\Bed\options\size-medium.png" />
+    <Content Include="AppContent\ProductImages\Bed\options\size-small.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-black.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-blue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-boneslightgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-bonespink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-bonesnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-brown.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-camogray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-camopink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-circledotsgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-green.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-orange.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-pawsgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-pawsgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-pawslightgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-pink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-purple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-red.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-tan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-teal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-white.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-wine.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\default\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-bonesblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-bonesgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotpurple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledottan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotyellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-pawsblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-stripesblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-tan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-black.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-blue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-bonesnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-bonespink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-brown.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-camopink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotsgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-green.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-orange.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-pawsgray.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-pawsgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-pink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-purple.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-red.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-teal.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-white.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-wine.png" />
+    <Content Include="AppContent\ProductImages\Blanket\front\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\Bone\default\color-blue.png" />
+    <Content Include="AppContent\ProductImages\Bone\default\color-green.png" />
+    <Content Include="AppContent\ProductImages\Bone\default\color-pink.png" />
+    <Content Include="AppContent\ProductImages\Bone\default\color-red.png" />
+    <Content Include="AppContent\ProductImages\Bone\default\color-yellow.png" />
+    <Content Include="AppContent\ProductImages\Coat\options\size-large.png" />
+    <Content Include="AppContent\ProductImages\Coat\options\size-medium.png" />
+    <Content Include="AppContent\ProductImages\Coat\options\size-small.png" />
+    <Content Include="AppContent\ProductImages\Coat\options\size-xlarge.png" />
+    <Content Include="AppContent\ProductImages\Coat\options\size-xsmall.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\base.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-black.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-blue.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-green.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-orange.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-pink.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-purple.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-red.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-teal.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-white.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\buckle-yellow.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-anchor.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-black.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-blue.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-bones.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-chevron.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-diamonds.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-floral.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-green.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-orange.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-pink.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-plaid.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-purple.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-red.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-swirl.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-teal.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-triangles.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-white.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\ribbon-yellow.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-a.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-b.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-c.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-d.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-e.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-f.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-g.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-h.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-i.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-j.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-k.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-l.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-m.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-n.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-o.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-p.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-q.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-r.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-s.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-t.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-u.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-v.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-w.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-x.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-y.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber-z.png" />
+    <Content Include="AppContent\ProductImages\Collar\default\rubber.png" />
+    <Content Include="AppContent\ProductImages\Collar\options\size-large.png" />
+    <Content Include="AppContent\ProductImages\Collar\options\size-medium.png" />
+    <Content Include="AppContent\ProductImages\Collar\options\size-small.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\default\color-blue.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\default\color-green.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\default\color-pink.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\default\color-red.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\default\color-yellow.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\default\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\side\color-blue.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\side\color-green.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\side\color-pink.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\side\color-red.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\side\color-yellow.png" />
+    <Content Include="AppContent\ProductImages\Frisbee\side\_thumb.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-black.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-green.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-red.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-white.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-black.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-blue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-brown.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-green.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-orange.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-pink.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-purple.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-red.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-tan.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-teal.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-white.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-wine.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\hoodie\back\_thumb.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-black.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-green.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-red.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-white.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-black.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-blue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-brown.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-green.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-orange.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-pink.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-purple.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-red.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-tan.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-teal.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-white.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-wine.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\hoodie\default\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\button.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-black.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-blue.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-brown.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-green.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-navublue.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-orange.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-pink.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-purple.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-red.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-tan.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-teal.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-white.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-wine.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\inner-yellow.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-black.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-blue.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-brown.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-green.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-orange.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-pink.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-purple.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-red.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-tan.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-teal.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-white.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-wine.png" />
+    <Content Include="AppContent\ProductImages\Coat\back\main-yellow.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-black.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-blue.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-brown.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-green.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-orange.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-pink.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-purple.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-red.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-tan.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-teal.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-white.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-wine.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\inner-yellow.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-black.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-blue.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-brown.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-green.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-orange.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-pink.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-purple.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-red.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-tan.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-teal.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-white.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-wine.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\main-yellow.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Coat\default\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\hoodie\options\Size-large.png" />
+    <Content Include="AppContent\ProductImages\hoodie\options\Size-medium.png" />
+    <Content Include="AppContent\ProductImages\hoodie\options\Size-small.png" />
+    <Content Include="AppContent\ProductImages\hoodie\options\Size-xlarge.png" />
+    <Content Include="AppContent\ProductImages\hoodie\options\Size-xsmall.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\base.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-anchor.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-black.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-blue.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-bones.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-chevron.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-diamonds.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-floral.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-green.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-orange.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-pink.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-plaid.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-purple.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-red.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-swirl.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-teal.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-white.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\ribbon-yellow.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-a.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-b.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-c.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-d.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-e.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-f.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-g.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-h.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-i.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-j.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-k.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-l.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-m.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-n.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-o.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-p.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-q.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-r.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-s.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-t.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-u.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-v.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-w.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-x.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-y.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber-z.png" />
+    <Content Include="AppContent\ProductImages\Leash\default\rubber.png" />
+    <Content Include="AppContent\ProductImages\Leash\options\size-large.png" />
+    <Content Include="AppContent\ProductImages\Leash\options\size-medium.png" />
+    <Content Include="AppContent\ProductImages\Leash\options\size-small.png" />
+    <Content Include="AppContent\ProductImages\Placemat\banners\bone-bottom.png" />
+    <Content Include="AppContent\ProductImages\Placemat\banners\hardware-bottom.png" />
+    <Content Include="AppContent\ProductImages\Placemat\banners\oval-bottom.png" />
+    <Content Include="AppContent\ProductImages\Placemat\banners\vintage-bottom.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-camopurple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotscirclelightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotscirclepurple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotscircletan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotscircleyellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-black.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-blue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-bonesblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-bonesgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-brown.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-camopink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-circledotslightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-green.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-orange.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-pawsdarkgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-pawspink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-pink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-purple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-red.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-tan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-teal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-white.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-wine.png" />
+    <Content Include="AppContent\ProductImages\Placemat\default\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\Base.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-camopurple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-chevronlightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotscirclelightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotscirclepurple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotscircletan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotscircleyellow3.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\_thumb.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-black.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-blue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-brown.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-green.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-orange.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-pink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-purple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-red.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-tan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-teal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-white.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-wine.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\piping-yellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-black.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-blue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-bonesblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-bonesgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-bonesgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-bonesteal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-brown.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-camoblack.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-camoblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-camogreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-camopink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-chevrongreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-chevrongray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-chevronpink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-chevronwine.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-darkgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotsblack.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotsblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotsbrown.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-circledotslightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-circledotspurple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-circledotstan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-circledotsyellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-dotspink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-green.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-lightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-navyblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-orange.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-pawsdarkgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-pawslightgray.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-pawsnavyblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-pawsteal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-pink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-plaidblack.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-plaidblue.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-plaidpink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-plaidtan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-purple.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-red.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-stripesgreen.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-stripespink.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-stripestan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-stripesyellow.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-tan.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-teal.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-white.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-wine.png" />
+    <Content Include="AppContent\ProductImages\Placemat\side\top-yellow.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-female-outfit-dress.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-female-outfit-shorts.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-female-outfit-suit.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-female-outfit-swim.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-male-outfit-blue.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-male-outfit-red.png" />
+    <Content Include="AppContent\ProductImages\ToyPerson\default\gender-male-outfit-suit.png" />
+    <Content Include="AppContent\RenderImages\banner-bone.png" />
+    <Content Include="AppContent\RenderImages\banner-hardware.png" />
+    <Content Include="AppContent\RenderImages\banner-oval.png" />
+    <Content Include="AppContent\RenderImages\banner-vintage.png" />
+    <Content Include="AppContent\RenderImages\uploadPlaceholder.png" />
+    <Content Include="AppContent\RenderImages\uploadPlaceholderTwo.png" />
+    <Content Include="Content\bootstrap-override.css" />
+    <Content Include="Content\FilePickerIO.css" />
+    <Content Include="Content\speachBubble.css" />
+    <Content Include="Scripts\almond.js" />
+    <Content Include="Scripts\App\controllers\catalogController.js" />
+    <Content Include="Scripts\App\controllers\favoritesListController.js" />
+    <Content Include="Scripts\App\controllers\productController.js" />
+    <Content Include="Scripts\App\controllers\tutroialController.js" />
+    <Content Include="Scripts\App\util\responsiveUtil.js" />
+    <Content Include="Scripts\App\util\stringUtil.js" />
+    <Content Include="Scripts\App\util\urlUtil.js" />
+    <Content Include="Scripts\App\views\catalogView.js" />
+    <Content Include="Scripts\App\views\controlPanelView.js" />
+    <Content Include="Scripts\App\views\favoritesListView.js" />
+    <Content Include="Scripts\App\views\favoritesView.js" />
+    <Content Include="Scripts\App\views\fileUploadView.js" />
+    <Content Include="Scripts\App\views\helpTextView.js" />
+    <Content Include="Scripts\App\views\modalView.js" />
+    <Content Include="Scripts\App\views\pricingSummaryView.js" />
+    <Content Include="Scripts\App\views\productViewSelectorView.js" />
+    <Content Include="Scripts\App\views\tempView.js" />
+    <Content Include="Scripts\App\views\tutorialView.js" />
+    <Content Include="Scripts\App\_libWrappers.js" />
+    <Content Include="Scripts\checkForIE.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\App\views\designCanvasView.js" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="bin\Atalasoft.dotImage.lic" />
+    <Content Include="AppContent\Fonts\PlayfulPup.TTF" />
+    <Content Include="AppContent\Fonts\PRISTINA.TTF" />
+    <Content Include="AppContent\Fonts\BigDog.TTF" />
+    <Content Include="AppContent\Fonts\ZAG BOLD.OTF" />
+    <Content Include="AppContent\ProductData\Bone.json" />
+    <Content Include="AppContent\ProductData\Frisbee.json" />
+    <Content Include="AppContent\ProductData\ToyPerson.json" />
+    <Content Include="AppContent\ProductData\_catalog.json" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\LICENSE" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\README.md" />
+    <Content Include="AppContent\ProductData\Blanket.json" />
+    <Content Include="AppContent\ProductData\Placemat.json" />
+    <Content Include="AppContent\ProductData\Coat.json" />
+    <Content Include="AppContent\ProductData\Leash.json" />
+    <Content Include="AppContent\ProductData\Collar.json" />
+    <Content Include="AppContent\Fonts\ClassyCanine.ttf" />
+    <Content Include="AppContent\Fonts\odstemplikBold.otf" />
+    <Content Include="fonts\museo900-regular.otf" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\App\controllers\viewModelController.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\custom.fineuploader-5.0.3.css" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\custom.fineuploader-5.0.3.js" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\custom.fineuploader-5.0.3.min.css" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\custom.fineuploader-5.0.3.min.js" />
+    <Content Include="Content\edit.gif" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\html\templates\default.html" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\html\templates\simple-thumbnails.html" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\iframe.xss.response.js" />
+    <Content Include="Content\loading.gif" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\placeholders\not_available-generic.png" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\placeholders\waiting-generic.png" />
+    <Content Include="Scripts\custom.fineuploader-5.0.3\processing.gif" />
+    <Content Include="Scripts\imagesloaded.pkgd.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jsonselect.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\lodash.compat.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3-respond-1.1.0.min.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_ShopifyIntegration.cshtml" />
+    <Content Include="Views\Home\_product.cshtml" />
+    <Content Include="Views\Home\_steps.cshtml" />
+    <Content Include="Views\Home\_attributes.cshtml" />
+    <Content Include="Views\Home\_customizations.cshtml" />
+    <Content Include="Views\Home\_catalog.cshtml" />
+    <Content Include="Views\Home\_confirmBackToCatalog.cshtml" />
+    <Content Include="Views\Home\favorites.cshtml" />
+    <Content Include="Views\Home\_tutorial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AzureApi\AzureApi.csproj">
+      <Project>{19cd15bf-7fac-4836-8d36-c56b7a348126}</Project>
+      <Name>AzureApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopifyApi\ShopifyApi.csproj">
+      <Project>{E7CE8AD8-6F2B-4161-940F-304AB815AB7A}</Project>
+      <Name>ShopifyApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59713</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59713/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

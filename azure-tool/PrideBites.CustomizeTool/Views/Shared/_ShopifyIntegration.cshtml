@@ -1,0 +1,58 @@
+﻿@if (!Shopify.Environment.IsDevelopment)
+{
+    @:{% endraw %}
+    @:{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+
+    @Scripts.Render("https://shopifyexpert.com.au/modifylightbox/assets/lightbox/mdflbx_main.js") 
+    @*@:{% include 'modify_lightbox_snippet' %}*@
+
+    <script type="text/javascript">
+        Shopify.addItemFromData = function (data, callback) {
+            var quantity = quantity || 1;
+            var params = {
+                type: 'POST',
+                url: '/cart/add.js',
+                data: data,
+                dataType: 'json',
+                success: function (line_item) {
+                    if ((typeof callback) === 'function') {
+                        callback(line_item);
+                    }
+                    else {
+                        Shopify.onItemAdded(line_item);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus) {
+                    Shopify.onError(XMLHttpRequest, textStatus);
+                }
+            };
+            jQuery.ajax(params);
+        };
+
+        jQuery(document).ready(function ($) {
+            Shopify.getCart(function (response) {
+                var cartCount = response.items.length;
+                $('#cartCount').html(cartCount);
+            });
+        });
+    </script>
+}
+
+    
+    
+@*@:{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+    
+<div style="background-color:#ccc; border:1px solid #555; padding:20px;">
+    <button id="btnGo">Save product to console</button>
+    <button id="btnAdd">Add to cart</button>
+</div>
+
+<script type="text/javascript">
+    $('#btnGo').click(function () {
+        Shopify.getProduct('custom-bed', function (response) { console.log(response); })
+    });
+    $('#btnAdd').click(function () {
+        Shopify.addItem('729463193', 1, function (r) { console.log(r) });
+    });
+</script>*@
+

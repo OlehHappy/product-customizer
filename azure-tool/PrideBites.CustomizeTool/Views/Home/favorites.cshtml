@@ -1,0 +1,237 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row favorites-wrap">
+    <div class="col-md-10 col-md-offset-1">
+        <a id="favoriteButtonBack" href="http://pridebites.com/collections/custom-dog-products">< Design a product</a>
+        <div id="app-container">
+            <span class="text-center my-designs-header">My Favorites</span>
+            <div class="modal fade modal-design-shared">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title text-center">Thank you!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">Your design was shared.</div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script type="text/x-underscore" id="favorites-item-template">
+        <div class="col-md-6 fav-designs-wrapper" data-index="<%= favObj.index %>">
+            <div class="fav-designs-container">
+                <div class="row fav-inner">
+                    <div class="col-md-6">
+                        <ul style="padding-left:0;">
+                            <li><h3><%= favObj.designName %></h3></li>
+                            <li><img style="width:100%;" src='http://pridebites.com/apps/custom-pridebites/dynamicimage/thumbnail?size=medium&d=<%=favObj.linkParametersStr%>' /></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <ul id="fav-properties" style="padding-left:0;">
+                            <% _.each(favObj.friendlySelections, function( value, key ) { %>
+                            <% if(favObj.friendlySelections['Text']) { %>
+                            <% if(value) { %>
+                            <li><%= key %>: <%= value %></li>
+                            <% } %>
+                            <% } else { %>
+                            <% if(value && ((key != 'Banner') && (key != 'Font') && (key != 'Textcolor'))) {%>
+                            <li><%= key %>: <%= value %></li>
+                            <% } %>
+                            <% } %>
+                            <% }) %>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="modal share-modal fade product-index-<%= favObj.index %>" id="email-modal-<%= favObj.index %>">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h3 class="modal-title text-center">Email your design to a friend</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label for="toEmail" class="text-left">To:</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" placeholder="Your friend's email" name="toEmail" id="toEmail" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label for="fromEmail" class="text-left">From:</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" name="fromEmail" id="fromEmail" placeholder="Your email" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row" id="manualValidator" style="margin-top: 30px; margin-left: 0; color: red;">
+                                                    <p>Please fill in both fields</p>
+                                                </div>
+
+                                                <div class="row" style="margin-top: 50px;">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-9 text-center"><a href="" class="btn btn-icon submit-share-design text-center" id="submit-share-design"><i class="fa fa-share"></i><span>SHARE</span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+
+                    </div>
+                </div>
+                    <div class="fav-tool-panel">
+                        <div class="col-md-6">
+                            <div class="fav-edit-container fav-tool text-center">
+                                <a class="fav-edit" data-index="<%= favObj.index %>" data-properties='<%= JSON.stringify(favObj.selections) %>' href='http://pridebites.com/apps/custom-pridebites?product=<%= favObj.selections.productName %>&properties=<%= JSON.stringify(favObj.selections) %>'><i class=" fa fa-pencil fa-2x"></i></a>
+                                <p class="fav-helper-text">Edit</p>
+                            </div>
+                            
+
+                            <div class="fav-share-container fav-tool text-center">
+                                <a href='#' class="fav-share" data-index="<%= favObj.index %>"><i class="fa fa-share-alt fa-2x"></i> </a>
+                                <p class="fav-helper-text">Share</p>
+                            </div>
+                            <!-- for delete I can store the index in the array then use splice and reapply the cookie -->
+
+                            <div class="fav-remove-container fav-tool text-center">
+                                <a href="#" class="fav-remove" data-index="<%= favObj.index %>"><i class="fa fa-trash-o fa-2x"></i></a>
+                                <p class="fav-helper-text">Remove</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 favorites-add-to-cart"><a class="btn fav-cart-btn" data-index="<%= favObj.index %>"><i class="fa fa-shopping-cart icon"></i><span>ADD TO CART</span></a></div>
+                    </div>
+                
+            </div>
+            <div class="modal fade product-index-<%= favObj.index %>" >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background: #9C2220; color: #fff;">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title text-center">Email your design to a friend</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="toEmail" class="text-left">To:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" placeholder="Your friend's email" name="toEmail" id="toEmail" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="fromEmail" class="text-left">From:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="fromEmail" id="fromEmail" placeholder="Your email " required />
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-top: 50px;">
+                                        <div class="col-md-12 text-center"><a href="" class="btn btn-primary submit-share-design text-center" id="submit-share-design">Share Design</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <div class="modal fade product-index-<%= favObj.index %>" id="share-modal-<%= favObj.index %>">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background: #444444; color: #fff; height: 50px; border: 0;">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" style="float:left;">Share <%= favObj.designName %></h4>
+                        </div>
+                        <div class="modal-body" style="background: #444444; color: #fff; border: 0;">
+                            <div class="row">
+                                <div class="col-md-11" style="margin-left:2%;">
+                                    <!--div class="row">
+                                <a class="facebookShare fav-share-button" href="" target="_blank" id="facebook-share-<%= favObj.index %>">Facebook</a>
+                            </div-->
+
+                                    <div class="row">
+                                        <a class="twitterShare fav-share-button" href="" target="_blank" id="twitter-share-<%= favObj.index %>">Twitter</a>
+                                    </div>
+
+                                    <div class="row">
+                                        <a class="pinterestShare fav-share-button" href="" target="_blank" id="pinterest-share-<%= favObj.index %>">Pinterest</a>
+                                    </div>
+                                    <div class="row">
+                                        <a class="emailShare fav-share-button" href="#" data-index="<%= favObj.index %>">Email</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>      
+
+    </script>
+
+    <script>
+        require(['urlUtil', 'favoritesListController', 'favoritesListView', 'stringUtil'], function (urlUtil, favoritesListController, favoritesListView, stringUtil) {
+            console.log('requirejs'); console.log(favoritesListController);
+
+            var linkParameters = [],
+                favoritesArray = [];
+
+            $(function () {
+
+                favoritesArray = favoritesListController.getFavorites();
+
+                if (favoritesArray.length < 1) {
+                    favoritesListView.noDesignsMessage();
+                } else {
+                    $.each(favoritesArray, function (index, favObj) {
+                        template = $('#favorites-item-template').html();
+
+                        //capitalize all product properties before appending to DOM
+                        favObj.friendlySelections = _.object(_.map(favObj.selections, function (value, key) {
+                            return [stringUtil.capitalize(key), stringUtil.capitalize(value)];
+                        }));
+                        
+
+                        compiledTemplate = _.template(template, { favObj: favObj });
+                        $('#app-container').append(compiledTemplate);
+                    });
+
+                }
+
+                favoritesListView.registerEvents();
+
+            }());
+        });       
+
+    </script>
+
+}

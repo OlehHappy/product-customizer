@@ -1,0 +1,140 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="app-container">
+    <div id="customizer-container" class="hide">
+        <div class="row row-no-padding">
+            <div class="col-sm-3">
+                <div class="product-info">
+                    <a id="btnConfirmBack" href="/collections/custom-dog-products">< GO BACK TO PRODUCTS</a>
+                    <h1 data-bind="text: typeof product() === 'undefined' ? '' : product().displayName "></h1>
+                    <div class="largeText product-price" data-bind="text: typeof product() === 'undefined' ? '' : '$' + product().basePrice.toFixed(2) "></div>
+                    <div class="product-price-additions"></div>
+                    <p class="product-description hidden-sm" data-bind="text: typeof product() === 'undefined' ? '' : product().description "></p>
+                    @*<button class="promotionButton btn"><i class="fa fa-star"></i><span>Click for promotions</span></button>*@
+                    <div class="infoButtons">
+                        <a class="btnExample btn"><i class="fa fa-picture-o"></i><span>EXAMPLES</span></a>
+                        <a class="btnMoreInfo btn"><i class="fa fa-plus-square-o"></i><span>MORE INFO</span></a>
+                        <a class="btn my-designs" href="@Shopify.ContentLocation.GetPublicPath("/favorites")" target="_blank"><i class="fa fa-heart"></i><span>MY FAVORITES</span></a>
+                        <a class="btn save-fav"><i class="fa fa-floppy-o"></i><span>SAVE/SHARE</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 col-md-6 text-center">
+                <div>
+                    <div class="helperArea">
+                        <div class="helperContent">
+                            <img style="vertical-align:top;" src="@Shopify.ContentLocation.GetPath("/AppContent/clippy.png")" />
+                            <span class="arrow_box productHelpText"></span>
+                        </div>
+                    </div>
+                    <div id="design-canvas"></div>
+                    <div id="view-container"></div>
+                </div>
+                <div class="productConfigurations">
+                    <div class="randomBox">
+                        <button class="btnRandom btn"><i class="fa fa-random"></i><span>TOP SELLERS</span></button>
+                        <div><span>Click for inspiration</span><img src="@Shopify.ContentLocation.GetPath("/AppContent/arrow.png")"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <div id="control-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-top: 25%;">
+            <div class="modal-body" style="padding:0;">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-top: -3%; right: -3%;">X</button>                
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!--------------------------------------------------------->
+    <!---------------Save My Design Modal --------------------->
+    <div class="modal fade save-design-modal small">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" style="color:#fff !important;">&times;</span><span class="sr-only">Close</span></button>
+                    <h3 class="text-center">Save My Design</h3>
+                </div>
+                <div class="modal-body">
+                    <div class=" row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <p class="text-center">Please enter the information below to receive your saved design</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                        
+                        <form id="form1" name="form1" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" action="https://pridebites.wufoo.com/forms/z18pkmto0ju5e5j/#public" novalidate>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="desc" id="title4" for="Field4" style="text-align:left;">Design Name</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="Field4" name="Field4" type="text" class="field text medium" style="height: 28px;" value="" maxlength="255" onkeyup="" required />
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-4">
+                                    <label class="desc" id="title2" for="Field2" style="text-align:left;">Your Email</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="Field2" name="Field2" type="email" spellcheck="false" class="field text medium" value="" maxlength="255" required />
+                                </div>
+                            </div>
+
+                            <div class="row" id="manualValidator" style="margin-top: 30px; margin-left: 0; color: red;">
+                                <p>Please fill in both fields</p>
+                            </div>
+
+                            <input id="Field6" name="Field6" type="hidden" value="" maxlength="255" tabindex="1" />
+
+
+                            <div class="row" style="margin-top: 50px;">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8">
+                                  
+                                    <a id="saveForm" name="saveForm" class="btTxt submit btn btn-primary sav-fav-submit save-fav text-center"><i class="fa fa-save"></i><span>SAVE</span></a>
+                                </div>
+                            </div>
+
+                            <li class="hide" style="display:none;">
+                                <label for="comment">Do Not Fill This Out</label>
+                                <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+                                <input type="hidden" id="idstamp" name="idstamp" value="gI+n6Fr981KsxCu+YZ0wv+j2G/GBmrKrLlEbjDCv+nw=" />
+                            </li>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+              </div>
+            </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+    </div> <!-- app container -->
+
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-top: 25%;">
+            <div class="modal-body" style="padding:0;">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-top: -3%; right: -3%;">X</button>
+                <img src="" id="imageModalContent" style="width:100%;" />
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_catalog")
+@Html.Partial("_product")
+@section scripts{
+<script src="@Shopify.ContentLocation.GetPath("/scripts/main.js")"></script>    
+}

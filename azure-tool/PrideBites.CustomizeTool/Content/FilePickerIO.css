@@ -1,0 +1,39 @@
+﻿.bar-title
+{
+    position:relative;
+    padding-bottom: 200px;
+    padding-top: 15px;
+    background: #ccc;
+}
+
+.bar-title .servicePickerButton {
+position:absolute;
+top: 30%;
+left: -moz-calc(50% - 110px);
+left: -webkit-calc(50% - 110px);
+left: -o-calc(50% - 110px);
+left: calc(50% - 110px);
+width: 220px;
+}
+.service-picker { 
+left: -moz-calc(50% - 110px);
+left: -webkit-calc(50% - 110px);
+left: -o-calc(50% - 110px);
+left: calc(50% - 110px);
+top:105px;
+}
+
+#localTarget { 
+    top: 50%;
+left: -moz-calc(50% - 110px);
+left: -webkit-calc(50% - 110px);
+left: -o-calc(50% - 110px);
+left: calc(50% - 110px);
+}
+.bar-title .uploadButton {
+width: 220px;
+}
+
+.authpane {
+    margin-top: 120px;
+}

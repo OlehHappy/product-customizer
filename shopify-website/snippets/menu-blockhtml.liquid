@@ -1,0 +1,12 @@
+
+<div class="block-html">
+	{% if settings[ap_html_title] != blank %}
+		<div class="menu-title">{{ settings[ap_html_title] }}</div>
+	{% endif %}
+	<div class="widget-inner">
+		<div class="box-image">{{ ap_html_img | asset_url | img_tag: settings[ap_html_title], "img-responsive" }}</div>
+		{% if settings[ap_html_des] != blank %}
+			<p>{{ settings[ap_html_des] }}</p>
+		{% endif %}
+	</div>
+</div>

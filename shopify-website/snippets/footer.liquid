@@ -1,0 +1,100 @@
+<div class="footer-container">
+    <section id="footertop" class="footer-top"> 
+        <div class="container">
+            <div class="footer_boxed">
+                {% if settings.footer_blockhtmltop_enable %}
+                    {% include 'block-footerhtml' %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+  <!--  
+  <section id="footercenter" class="footer-center"> 
+        <div class="container">
+            <div class="footer_top_wrap">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        {% if settings.footer_aboutshop_enable %}
+                            {% include 'block-aboutshop' %}
+                        {% endif %}
+                    </div>
+                    {% if settings.twitter_enable %}
+                         <div class="col-md-3 col-sm-6 col-xs-12">
+                            {% include 'block-twitter' %}
+                        </div>
+                    {% endif %}
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                            {% if settings.footer_blockcontact_enable %}
+                                {% include 'block-contactus' %}
+                            {% endif %}
+
+                            {% if settings.footer_social_enable %}
+                                {% include 'block-social' %}
+                            {% endif %}
+                    </div>
+                    {% if settings.google_map_enable %}
+                         <div class="col-md-3 col-sm-6 col-xs-12">
+                            {% include 'block-google-map' %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <section id="footerbottom" class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-wrap">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        {% if settings.footer_quicklinks_enable %}
+                            {% assign footerlinks_name = settings.footer_quicklinks_linklist %}
+                            {% assign footerlinks_title = settings.footer_quicklinks_title %}
+                            {% include 'block-footerlinks' with '1' %}
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        {% if settings.footer_quicklinks_enable_1%}
+                            {% assign footerlinks_name = settings.footer_quicklinks_linklist_1 %}
+                            {% assign footerlinks_title = settings.footer_quicklinks_title_1 %}
+                            {% include 'block-footerlinks' with '2' %}
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        {% if settings.footer_quicklinks_enable_2 %}
+                            {% assign footerlinks_name = settings.footer_quicklinks_linklist_2 %}
+                            {% assign footerlinks_title = settings.footer_quicklinks_title_2 %}
+                            {% include 'block-footerlinks' with '3' %}
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      	{% if settings.footer_quicklinks_enable_3 %}
+                            {% assign footerlinks_name = settings.footer_quicklinks_linklist_3 %}
+                            {% assign footerlinks_title = settings.footer_quicklinks_title_3 %}
+                            {% include 'block-footerlinks' with '4' %}
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+  <!--
+    <div id="footernav" class="footer-nav">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="powered col-lg-9 col-md-9 col-xs-12" style="display:none !important;">
+                        <p class="align-left">Copyright &copy; {{ "now" | date: "%Y" }} Powered by <a href="http://apollotheme.com" target="_blank">Apollotheme</a>.</p>
+                        <p class="align-left">All Right Reserved</p>
+                    </div>
+                    <div class='payment col-lg-3 col-md-3 col-xs-12'>
+                        <p class='align-left'>Accept payment</p>
+                        <a href="#" target="_blank">{{ 'payment.png' | asset_url | img_tag: payment, "payment img-responsive" }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+</div>

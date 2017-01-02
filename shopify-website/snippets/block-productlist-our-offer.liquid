@@ -1,0 +1,47 @@
+<div id="productlist-our-offer{{ block-productlist-our-offer }}" class="productlist-feature products_block exclusive" >
+	{% if settings.home_productlist_title_our_offer != blank %}
+		<h4 class="page-subheading">
+			{{ settings.home_productlist_title_our_offer }}
+		</h4>
+	{% endif %}
+	<div class="block_content">
+		{% assign collection_produclists = collections[settings.home_productlists_collection_our_offer].products %}
+		{% if settings.home_productlists_type_our_offer == 'boostrap_carousel' %}
+			{% capture product_carousel %}product_offer_00{{ block-productlist-our-offer }}{% endcapture %}
+			{% include 'product-carousel' %}
+		{% else %}
+			{% include 'product-carousel-owl' %}
+		{% endif %}
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		{% if settings.home_productlists_type_our_offer == 'boostrap_carousel' %}
+		    $('#productlist-our-offer{{ block-productlist-our-offer }}').each(function(){
+		        $(this).carousel({
+		            pause: 'hover',
+		            interval: {{ settings.home_productlists_interval_our_offer }}
+		        });
+		    });
+	    {% else %}
+	    	$('#productlist-our-offer{{ block-productlist-our-offer }} .owl-carousel').each(function(){
+    		  	$(this).owlCarousel({
+    		      	items : 1,
+			        singleItem : true,
+    		      	lazyLoad : true,
+    		      	navigation : true,
+		      		afterInit : SetOwlCarouselFirstLast,
+			        afterAction : SetOwlCarouselFirstLast,
+			        addClassActive : true,
+		      	}); 
+    		});
+    		function SetOwlCarouselFirstLast(el){
+			  el.find(".owl-item").removeClass("first");
+			  el.find(".owl-item.active").first().addClass("first");
+
+			  el.find(".owl-item").removeClass("last");
+			  el.find(".owl-item.active").last().addClass("last");
+			};
+	    {% endif %}
+	});
+</script>

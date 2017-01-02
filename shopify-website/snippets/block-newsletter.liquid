@@ -1,0 +1,37 @@
+{% if settings.newsletter_form_action != blank %}
+    {% assign form_action = settings.newsletter_form_action %}
+{% else %}
+    {% assign form_action = '#' %}
+{% endif %}
+<div id="newsletter_block" class="block footer-block inline">
+    {% if settings.newsletter_title != blank %}
+        <h4 class="title_block">
+            {{ settings.newsletter_title }}
+        </h4>
+    {% endif %}
+    <div class="block_content toggle-footer">
+        {% if settings.newsletter_des != blank %}
+            <div class="des_newsletter">
+                {{ settings.newsletter_des }}
+            </div>
+        {% endif %}
+        <!--<form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="newsletter-input form-control" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}">
+            <input type="submit" class="button_mini btn btn-outline" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+        </form> -->
+      
+      <!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+<script>
+  hbspt.forms.create({ 
+    css: '',
+    cssClass: 'form-inline hide-label',
+    portalId: '537527',
+    formId: 'c41b4784-8b7e-4747-8af7-9ef71d0d8359'
+  });
+</script>
+
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="blog-item item {{ grid_blogscarousel }}">
+  	{% if settings.home_blogs_showimage %}
+		{% if article.content contains '<img' %}
+			<div class="image col-md-6 col-sm-12 col-xs-12">
+				{% assign content_blog_home = article.content %}
+				<img src="{% include 'blog-src-image' width article.content %}" title="{{ article.title }}" class="img-responsive replace-2x" alt="{{ article.title }}" />
+			</div>
+  		{% else %}
+  			<div class="image col-md-6 col-sm-12 col-xs-12">
+              <img src="http://placehold.it/835x400&text=No%20Images" title="{{ article.title }}" class="img-responsive replace-2x" alt="{{ article.title }}" />
+  			</div>
+		{% endif %}
+	{% endif %}
+  	
+	<div class="col-md-6 col-sm-12 col-xs-12 clearfix">
+      	<h4><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></h4>
+      	
+      	<div class="blog-shortinfo">
+			{% if article.excerpt.size > 0 %}
+          		{{ article.excerpt }}
+	        {% else %}
+          		<p>{{ article.content | strip_html | truncatewords: 20 }}</p>
+	        {% endif %}
+		</div>
+      
+		<div class="blog-meta">
+			{% if settings.home_blogs_createdate %} 
+				<span class="blog-created">
+					<span class="icon-calendar">
+						<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+					</span>
+				</span>
+			{% endif %}
+			{% if settings.home_blogs_counter %} 
+				<span class="blog-ctncomment">
+					<span class="icon-comment">
+						<a href="{{ article.url }}#comments">
+					    	{{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+					  	</a>
+					</span>
+				</span>
+			{% endif %}
+		</div>
+		
+		
+		<a class="link" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+	</div>
+	
+</div>

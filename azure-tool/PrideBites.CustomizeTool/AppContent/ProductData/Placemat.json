@@ -1,0 +1,377 @@
+﻿	{
+    "name": "Placemat",
+    "displayName": "PRIDEBITES PLACEMAT",
+    "description": "Although your dog doesn't eat at the table, they still deserve to a nice area to chow down. Make them a custom place mat that matches your kitchen! They're made of our Durabite fleece, and are machine washable. The non-slip grip bottom holds the mat in place while your dog eats.",
+    "basePrice": 24.99,
+    "helpText" : { "Placemat" :"Need some help? I’m here to assist you through the process! First, choose the placemat color that works best for your dog, then click “Border” to continue.",
+                   "styles" : "A little extra stlye never hurt anyone.",
+                   "attribute-Top" : "Choose your favorite color or design for the top of your placemat, then click “Border” to continue.",
+                   "attribute-Side" : "Choose your favorite color or design for the sides of your placemat, then click “Border” to continue.",
+                   "attribute-Piping" : "Whoa now, this placemat is looking great! Do you do this professionally? You’re almost done. Just choose your favorite color for the border, and then it's time to personalize.",
+                   "personalize" : "Add your dogs name on the placemat so everyone knows it’s theirs! You can even add their image by clicking “Photo.”",
+                   "attribute-Name" : "Add your dogs name on the placemat so everyone knows it’s theirs! You can even add their image by clicking “Photo.”",
+                   "attribute-Photo" : "Find at least two of your favorite photos of your dog and upload them here. ",
+                   "complete" : "All finished! Click “Add to Cart” to checkout. Don’t worry you can continue shopping from there if you want.  You’re about to have a very happy dog!"
+                 },
+	"predefinedSelections": [
+        { "Top": "DotsBlue", "Piping": "Wine" },
+		{ "Top": "Red", "Piping": "Blue" },
+		{ "Top": "Teal", "Piping": "Pink" },
+		{ "Top": "BonesGreen", "Piping": "Orange" },
+		{ "Top": "DotsBlack", "Piping": "Yellow" },
+		{ "Top": "CamoBlack", "Piping": "Black" },
+		{ "Top": "ChevronPink", "Piping": "Teal" },
+		{ "Top": "NavyBlue", "Piping": "Brown" },
+		{ "Top": "CircleDotsTan", "Piping": "NavyBlue" },
+		{ "Top": "PlaidPink", "Piping": "Pink" }
+	],
+    "externalIds": {
+        "keyFields" : ["productName"], 
+        "variants"  : { "Placemat" : "898327617"}
+    },
+
+    "views": [
+        {
+            "id": "default",
+            "layers": [ 
+                        { "attributeName": "Piping", "displayType": "image"}, 
+                        { "attributeName": "Top", "displayType": "image"},
+                        { "attributeName": "Name", "displayType": "text"
+                                          ,"defaults": { "Size": 60, 
+                                                         "imgSrc": "placeholder2", 
+                                                         "x":340, "y":320, "h":50, "w": 185, "align": "center", "x2": 135, "y2": 28, "h2": 360, "w2": 590   
+                                                        }
+                        },
+                        { "attributeName": "Photo", "displayType": "none"}
+                         ]
+        },
+        {
+            "id": "side",
+            "layers": [
+                        { "attributeName": "Piping", "displayType": "image"}, 
+                        { "attributeName": "Top", "displayType": "image"},
+                        { "attributeName": "Photo", "displayType": "none"},
+                         { "attributeName": "Name", "displayType": "text"
+                                          ,"defaults": { "Size": 60, 
+                                                         "imgSrc": "placeholder2", 
+                                                         "x":340, "y":270, "h":50, "w": 185, "align": "center", "x2": 185, "y2": 25, "h2": 300, "w2": 495
+                                                        }
+                        }
+                      ],
+            "regions": [
+                 {
+                }
+            ]
+        }
+    ],
+    "steps": [      
+        {
+            "id": "styles",
+            "icon": "fa-th-large",
+            "name": "DESIGN",
+            "type": "tab",          
+            "attributes": [
+             
+                {
+                    "name": "Top",
+                    "displayName":  "Main Color",
+                    "customizations": [
+                        {
+                            "field": "Top",
+                            "label" : "Pick a main color for the placemat",
+                            "selectedValue": "DotsBlue",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                { 
+                                    "name": "Bold", 
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+                                                    { "value": "Red", "display": "c2002f"},
+                                                    { "value": "Orange", "display": "f68d29"},
+                                                    { "value": "Yellow", "display": "ffd923"},
+                                                    { "value": "Teal", "display": "9cd8d8"},
+                                                    { "value": "Green", "display": "009877"},
+                                                    { "value": "Blue", "display": "005cb8"},
+                                                    { "value": "Purple", "display": "853175"},
+                                                    { "value": "Pink", "display": "e51992"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+                                    "label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000"},
+                                                    { "value": "White", "display": "ffffff"},
+                                                    { "value": "LightGray", "display": "b4b2b2"},
+                                                    { "value": "Tan", "display": "cfb4a7"},
+                                                    { "value": "Brown", "display": "5d3326"},
+                                                    { "value": "DarkGreen", "display": "404726"},
+                                                    { "value": "NavyBlue", "display": "003763"},
+                                                    { "value": "Wine", "display": "79232e"}
+                                                ]
+                                },
+                                 { 
+                                    "name": "Patterns", 
+                                    "label": "Fun designs with multiple color options",
+                                    "img": "/pattern-icon.png",  
+                                    "subGroups": [ {
+                                                    "groupImg" : "plaid1.png",
+                                                    "display" : "Plaid",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "plaid1.png", "value": "PlaidTan", "label": "Tan" },
+                                                        { "isImage": true, "imgSrc": "plaid2.png","value": "PlaidBlue", "label": "Blue"},
+                                                        { "isImage": true, "imgSrc": "plaid3.png", "value": "PlaidBlack", "label": "Black"},
+                                                        { "isImage": true, "imgSrc": "plaid4.png", "value": "PlaidPink", "label": "Pink"}
+                                                        ]
+                                                    },                                                                             
+                                                    {
+                                                    "groupImg" : "bones4.png",
+                                                    "display" : "Bones",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "bones1.png", "value": "BonesGreen", "label": "Green" },
+                                                        { "isImage": true, "imgSrc": "bones2.png", "value": "BonesTeal", "label": "Teal"},
+                                                        { "isImage": true, "imgSrc": "bones4.png","value": "BonesGray", "label": "Pink"},
+                                                        { "isImage": true, "imgSrc": "bones3.png", "value": "BonesBlue", "label": "NavyBlue"}
+                                                        
+                                                        ]
+                                                    },
+                                                    {
+                                                    "groupImg" : "paw1.png",
+                                                    "display": "Paws",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "paw1.png", "value": "PawsDarkGreen", "label": "Green"},
+                                                        { "isImage": true, "imgSrc": "paw2.png", "value": "PawsTeal", "label": "Teal"},
+                                                        { "isImage": true, "imgSrc": "paw3.png", "value": "PawsNavyBlue", "label": "NavyBlue"},
+                                                        { "isImage": true, "imgSrc": "paw4.png", "value": "PawsPink", "label": "Pink"}
+                                                        ]
+                                                    },
+                                                    
+                                                    { 
+                                                    "groupImg" : "circdots1.png",
+                                                    "display": "DotsCircle",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "circdots1.png", "value": "CircleDotsLightGray", "label": "Gray"},
+                                                        { "isImage": true, "imgSrc": "circdots2.png","value": "CircleDotsPurple", "label": "Purple"},
+                                                        { "isImage": true, "imgSrc": "circdots3.png","value": "CircleDotsTan", "label": "Tan"},
+                                                        { "isImage": true, "imgSrc": "circdots4.png","value": "CircleDotsYellow", "label": "Yellow"}
+                                                        ]
+                                                    },
+                                                    {
+                                                    "groupImg" : "Camoblack.png",
+                                                    "display": "Camo",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "Camoblack.png", "value": "CamoBlack", "label": "Black"},
+                                                        { "isImage": true, "imgSrc": "Camoblue.png","value": "CamoBlue", "label": "Blue"},
+                                                        { "isImage": true, "imgSrc": "Camogreen.png","value": "CamoGreen", "label": "Green"},
+                                                        { "isImage": true, "imgSrc": "Camopink.png","value": "CamoPink", "label": "Pink"}
+                                                        ]
+                                                    },
+                                                    { 
+                                                    "groupImg" : "chevron1.png",
+                                                    "display": "Chevron",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "chevron1.png", "value": "ChevronGreen", "label": "Green"},
+                                                        { "isImage": true, "imgSrc": "chevron2.png", "value": "ChevronPink", "label": "Pink"},
+                                                        { "isImage": true, "imgSrc": "chevron3.png", "value": "ChevronGray", "label": "Gray"},
+                                                        { "isImage": true, "imgSrc": "chevron4.png","value": "ChevronWine", "label": "Wine"}
+                                                        ]
+                                                    },
+                                                    { 
+                                                    "groupImg" : "dots1.png",
+                                                    "display": "Polkadots",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "dots1.png", "value": "DotsBrown", "label": "Brown"},
+                                                        { "isImage": true, "imgSrc": "dots2.png","value": "DotsBlue", "label": "Blue"},
+                                                        { "isImage": true, "imgSrc": "dots3.png","value": "DotsPink", "label": "Pink"},
+                                                        { "isImage": true, "imgSrc": "dots4.png","value": "DotsBlack", "label": "Black"}
+                                                        ]
+                                                    },
+                                                    {
+                                                    "groupImg" : "stripes1.png",
+                                                    "display": "Stripes",
+                                                    "options": [
+                                                        { "isImage": true, "imgSrc": "stripes1.png", "value": "StripesYellow", "label": "Yellow"},
+                                                        { "isImage": true, "imgSrc": "stripes2.png", "value": "StripesGreen", "label": "Green"},
+                                                        { "isImage": true, "imgSrc": "stripes3.png","value": "StripesTan", "label": "Tan"},
+                                                        { "isImage": true, "imgSrc": "stripes4.png","value": "StripesPink", "label": "Pink"}
+                                                        ]
+                                                    }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Piping",
+                    "displayName":  "Border",
+                    "customizations": [
+                        {
+                            "field": "Piping",
+                            "label" : "Pick a color for the border of the placemat",
+                            "selectedValue": "Wine",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                { 
+                                    "name": "Bold", 
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+                                                    { "value": "Red", "display": "c2002f"},
+                                                    { "value": "Orange", "display": "f68d29"},
+                                                    { "value": "Yellow", "display": "ffd923"},
+                                                    { "value": "Teal", "display": "9cd8d8"},
+                                                    { "value": "Green", "display": "009877"},
+                                                    { "value": "Blue", "display": "005cb8"},
+                                                    { "value": "Purple", "display": "853175"},
+                                                    { "value": "Pink", "display": "e51992"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+                                    "label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000"},
+                                                    { "value": "White", "display": "ffffff"},
+                                                    { "value": "LightGray", "display": "b4b2b2"},
+                                                    { "value": "Tan", "display": "cfb4a7"},
+                                                    { "value": "Brown", "display": "5d3326"},
+                                                    { "value": "DarkGreen", "display": "404726"},
+                                                    { "value": "NavyBlue", "display": "003763"},
+                                                    { "value": "Wine", "display": "79232e"}
+                                                ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "personalize",
+            "icon": "fa-pencil",
+            "name": "PERSONALIZE",
+            "type": "list", 
+            "views": ["default"],       
+            "attributes": [
+                {
+                    "name":  "Name",
+                    "customizations": [
+                        {
+                            "field": "text",
+                            "display" : "Add your dog's name",
+                            "selectedValue": "",
+                            "type": "text"
+                        },
+                        {
+                            "field": "banner",
+                            "label" : "Choose a banner",
+                            "selectedValue": "Oval",
+                            "type": "imageRadio",
+                            "optionScope": "global",
+                            "options": [
+                                {   
+                                    "value": "Oval",                                
+                                    "displayUrl": "oval.png"
+                                },
+                                {
+                                    "value": "Vintage",             
+                                    "displayUrl": "vintage.png"
+                                },
+                                {
+                                    "value": "Hardware",                                    
+                                    "displayUrl": "hardware.png"
+                                },
+                                {
+                                    "value": "Bone",                                    
+                                    "displayUrl": "bone.png"
+                                }
+                                ]
+                        },
+                        {
+                            "field": "font",
+                            "label" : "Choose a font",
+                            "selectedValue": "BigDog.TTF",
+                            "type": "dropDown",
+                            "options": [
+                                {
+                                    "value": "PlayfulPup.TTF",
+                                    "display": "Playful Pup"
+                                },
+                                {
+                                    "value": "ClassyCanine.ttf",
+                                    "display": "Classy Canine"
+                                },
+                                {
+                                    "value": "BigDog.TTF",
+                                    "display": "Big DOG"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "textColor",
+                            "label" : "Choose text color",
+                            "selectedValue": "Black",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                { 
+                                    "name": "Bold", 
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+													{ "value": "Red", "display": "c2002f", "label":"Red"},
+													{ "value": "Orange", "display": "f68d29", "label":"Orange"},
+													{ "value": "Yellow", "display": "ffd923", "label":"Yellow"},
+                                                    { "value": "Teal", "display": "9cd8d8", "label":"Teal"},
+								                    { "value": "Green", "display": "009877", "label":"Green"},
+													{ "value": "Blue", "display": "005cb8", "label":"Blue"},
+								                    { "value": "Purple", "display": "853175", "label":"Purple"},
+                                                    { "value": "Pink", "display": "e51992", "label":"Pink"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+                                    "label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000", "label": "Black"},
+													{ "value": "White", "display": "ffffff", "label": "White"},
+													{ "value": "LightGray", "display": "b4b2b2", "label": "LightGray"},
+													{ "value": "Tan", "display": "cfb4a7", "label": "Tan"},
+													{ "value": "Brown", "display": "5d3326", "label": "Brown"},
+													{ "value": "DarkGreen", "display": "404726", "label": "DarkGreen"},
+													{ "value": "NavyBlue", "display": "003763", "label": "NavyBlue"},
+								                    { "value": "Wine", "display": "79232e", "label": "Wine"	}
+                                                ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+					"name" : "Photo",
+					"staticContent" : "#staticContentUploadTemplate",
+					"customizations":[
+					 {
+                            "field": "image1",
+							"label" : "Add your dog's image",
+							"labelText" : "Please upload at least 2 for best results. *All dog images are hand drawn by our talented designers and may not come out as exact as you want but we promise you'll like them :)",
+                            "type": "imageUpload"
+                        },
+						{
+                            "field": "image2",
+                            "type": "imageUpload"
+                        },
+						{
+                            "field": "image3",
+                            "type": "imageUpload"
+                        }
+					]
+				}
+            ]
+        }
+    ]
+}

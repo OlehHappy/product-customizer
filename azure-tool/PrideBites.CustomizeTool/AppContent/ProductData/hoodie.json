@@ -1,0 +1,287 @@
+﻿{
+    "name": "Hoodie",
+    "displayName": "PRIDEBITES HOODIE",
+    "description": "Dogs may have fur, but that doesn't mean they can't get chilly when the sun goes down. Our custom Summer Hoodies are lightweight and soft, and have a zipper for an easy on/off experience.",
+    "basePrice": 27.99,
+    "helpText": {
+        "Hoodie": "Need some help? I’m here to assist you through the process! First, choose the hoodie size that works best for your dog, then click “Color” to continue.",
+        "styles": "A little extra stlye never hurt anyone.",
+        "attribute-Size": "Choose the hoodie size that works best for your dog, then click “Color” to continue.",
+        "attribute-Top": "Choose your favorite color or design for the top of your hoodie, then click “Accent” to continue.",
+        "attribute-Side": "Choose your favorite color or design for the accent of your hoodie, then click “Personalize” to continue.",
+        "attribute-Piping": "Whoa now, this hoodie is looking great! Do you do this professionally? You’re almost done. Just choose your favorite color for the piping, and then its time to personalize.",
+        "personalize": "Add your dogs name on the hoodie so everyone knows it’s theirs!",
+        "attribute-Name": "Add your dogs name on the hoodie so everyone knows it’s theirs!",
+        "complete": "All finished! Click “Add to Cart” to checkout. Don’t worry you can continue shopping from there if you want.  You’re about to have a very happy dog!"
+    },
+
+    "predefinedSelections": [
+		{ "Top": "Blue", "Piping":"Yellow"},
+		{ "Top": "Brown", "Piping":"Tan"},
+		{ "Top": "Red", "Piping":"Blue"},
+		{ "Top": "Red", "Piping":"Blue"},
+		{ "Top": "Pink", "Piping":"Black"},
+		{ "Top": "Black", "Piping":"Pink"},
+		{ "Top": "LightGray", "Piping":"Green"},
+		{ "Top": "Green", "Piping":"LightGray"},
+		{ "Top": "NavyBlue", "Piping":"White"}
+    ],
+
+    "externalIds": {
+        "keyFields": [ "Size" ],
+        "variants": {
+            "ExtraSmall": "936451929",
+            "Small": "936451913",
+            "Medium": "936451917",
+            "Large": "936451925",
+            "ExtraLarge": "936451933"
+        }
+
+    },
+    "views": [
+        {
+            "id": "default",
+            "layers": [
+                { "attributeName": "Piping", "displayType": "image" },
+                { "attributeName": "Top", "displayType": "image" },
+                { "attributeName": "Name", "displayType": "none" }
+            ]
+        },
+        {
+            "id": "back",
+            "layers": [
+                { "attributeName": "Piping", "displayType": "image" },
+                { "attributeName": "Top", "displayType": "image" },
+                {
+                    "attributeName": "Name",
+                    "displayType": "text",
+                    "defaults": {
+                        "Size": 60,
+                        "x": 390,
+                        "y": 170,
+                        "h": 50,
+                        "w": 70,
+                        "align": "center"
+                    }
+                },
+                { "attributeName": "Photo", "displayType": "none" }
+            ],
+            "regions": [
+                {
+                }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "id": "styles",
+            "icon": "fa-th-large",
+            "name": "DESIGN",
+            "type": "tab",
+            "attributes": [
+                {
+                    "name": "Size",
+                    "customizations": [
+                        {
+                            "field": "Size",
+							"staticContent": "#staticContentSizeChartTemplate",
+                            "label": "Choose a hoodie size",
+                            "selectedValue": "Small",
+                            "type": "imageRadio",
+                            "options": [
+                                {	
+                                    "value": "ExtraSmall",
+                                    "displayUrl": "xsmall.png" 
+                                },
+                                {
+                                    "value": "Small",
+                                    "displayUrl": "small.png"                             
+                                },
+                                {
+                                    "value": "Medium",
+                                    "displayUrl": "medium.png"
+                                },
+                                {
+                                    "value": "Large",
+                                    "displayUrl": "large.png"
+                                },
+                                {	
+                                    "value": "ExtraLarge",
+                                    "displayUrl": "xlarge.png"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Top",
+                    "displayName": "Color",
+                    "customizations": [
+                        {
+                            "field": "Top",
+                            "label": "Pick a main color for the hoodie",
+                            "selectedValue": "blue",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                {
+                                    "name": "Bold",
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",
+                                    "options": [
+                                        { "value": "Red", "display": "c2002f" },
+                                        { "value": "Orange", "display": "f68d29" },
+                                        { "value": "Yellow", "display": "ffd923" },
+                                        { "value": "Teal", "display": "9cd8d8" },
+                                        { "value": "Green", "display": "009877" },
+                                        { "value": "Blue", "display": "005cb8" },
+                                        { "value": "Purple", "display": "853175" },
+                                        { "value": "Pink", "display": "e51992" }
+                                    ]
+                                },
+                                {
+                                    "name": "Warm", 
+                                    "label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",
+                                    "options": [
+                                        { "value": "Black", "display": "000000" },
+                                        { "value": "White", "display": "ffffff" },
+                                        { "value": "LightGray", "display": "b4b2b2" },
+                                        { "value": "Tan", "display": "cfb4a7" },
+                                        { "value": "Brown", "display": "5d3326" },
+                                        { "value": "DarkGreen", "display": "404726" },
+                                        { "value": "NavyBlue", "display": "003763" },
+                                        { "value": "Wine", "display": "79232e" }
+                                    ]
+                                }
+                                
+                            ]
+
+                        }
+                    ]
+                },
+                {
+                    "name": "Piping",
+                    "displayName": "Accent",
+                    "customizations": [
+                        {
+                            "field": "Piping",
+                            "label": "Pick an accent color for the hoodie",
+                            "selectedValue": "blue",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                {
+                                    "name": "Bold",
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",
+                                    "options": [
+                                        { "value": "Red", "display": "c2002f" },
+                                        { "value": "Orange", "display": "f68d29" },
+                                        { "value": "Yellow", "display": "ffd923" },
+                                        { "value": "Teal", "display": "9cd8d8" },
+                                        { "value": "Green", "display": "009877" },
+                                        { "value": "Blue", "display": "005cb8" },
+                                        { "value": "Purple", "display": "853175" },
+                                        { "value": "Pink", "display": "e51992" }
+                                    ]
+                                },
+                                {
+                                    "name": "Warm", 
+                                    "label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",
+                                    "options": [
+                                        { "value": "Black", "display": "000000" },
+                                        { "value": "White", "display": "ffffff" },
+                                        { "value": "LightGray", "display": "b4b2b2" },
+                                        { "value": "Tan", "display": "cfb4a7" },
+                                        { "value": "Brown", "display": "5d3326" },
+                                        { "value": "DarkGreen", "display": "404726" },
+                                        { "value": "NavyBlue", "display": "003763" },
+                                        { "value": "Wine", "display": "79232e" }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "personalize",
+            "icon": "fa-pencil",
+            "name": "PERSONALIZE",
+            "type": "list",
+            "views": [ "back" ],
+            "attributes": [
+                {
+                    "name": "Name",
+                    "customizations": [
+                        {
+                            "field": "text",
+                            "display": "Add your dog's name",
+                            "selectedValue": "",
+                            "type": "text"
+                        },
+                        {
+                            "field": "font",
+                            "label": "Choose a font",
+                            "selectedValue": "BigDog.TTF",
+                            "type": "dropDown",
+                            "options": [
+                                {
+                                    "value": "PlayfulPup.TTF",
+                                    "display": "Playful Pup"
+                                },
+                                {
+                                    "value": "ClassyCanine.ttf",
+                                    "display": "Classy Canine"
+                                },
+                                {
+                                    "value": "BigDog.TTF",
+                                    "display": "Big DOG"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "textColor",
+                            "label": "Choose text color",
+                            "selectedValue": "Black",
+                            "type": "groupedColorPicker",
+                            "groups": [
+                                {
+                                    "name": "Bold",
+                                    "label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",
+                                    "options": [
+													{ "value": "Red", "display": "c2002f", "label":"Red"},
+													{ "value": "Orange", "display": "f68d29", "label":"Orange"},
+													{ "value": "Yellow", "display": "ffd923", "label":"Yellow"},
+                                                    { "value": "Teal", "display": "9cd8d8", "label":"Teal"},
+								                    { "value": "Green", "display": "009877", "label":"Green"},
+													{ "value": "Blue", "display": "005cb8", "label":"Blue"},
+								                    { "value": "Purple", "display": "853175", "label":"Purple"},
+                                                    { "value": "Pink", "display": "e51992", "label":"Pink"}
+                                    ]
+                                },
+                                {
+                                    "name": "Warm", 
+                                    "label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",
+                                    "options": [
+                                                    { "value": "Black", "display": "000000", "label": "Black"},
+													{ "value": "White", "display": "ffffff", "label": "White"},
+													{ "value": "LightGray", "display": "b4b2b2", "label": "LightGray"},
+													{ "value": "Tan", "display": "cfb4a7", "label": "Tan"},
+													{ "value": "Brown", "display": "5d3326", "label": "Brown"},
+													{ "value": "DarkGreen", "display": "404726", "label": "DarkGreen"},
+													{ "value": "NavyBlue", "display": "003763", "label": "NavyBlue"},
+								                    { "value": "Wine", "display": "79232e", "label": "Wine"	}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

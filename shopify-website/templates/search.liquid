@@ -1,0 +1,49 @@
+{% assign grid_results = true %}
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+    <section id="columns" class="columns-container">
+        <div id="columns" class="container">
+            <div class="row product_list">
+                <div id="center_column" class="center_column col-md-12">
+                    <div id="search-page">
+                        {% if search.performed %}
+                            {% paginate search.results by 12 %}
+                                {% if search.results_count == 0 %}
+                                    <h1 class="h2 text-center">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
+                                    {% comment %}{% include 'search-bar' %}{% endcomment %}
+                                {% else %}
+                                    <h1 class="h2 text-center">{{ 'general.search.results_for_html' | t: terms: search.terms }}</h1>
+                                    {% comment %}{% include 'search-bar' %}{% endcomment %}
+                                    {% if grid_results == false %}
+                                        <div class="product_list row list">
+                                            {% for item in search.results %}
+                                                {% include 'search-result' %}
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        <div class="row">
+                                            {% for item in search.results %}
+                                                {% include 'search-result-grid' %}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                                {% if paginate.pages > 1 %}
+                                    <div class="text-center">
+                                        {% include 'pagination-custom' %}
+                                    </div>
+                                {% endif %}
+                            {% endpaginate %}
+                        {% else %}
+                            <h1 class="h2 text-center">{{ 'general.search.title' | t }}</h1>
+                            {% comment %}{% include 'search-bar' %}{% endcomment %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% else %}
+    {% include 'respond' %}
+    {% layout none %}
+{% endunless %}

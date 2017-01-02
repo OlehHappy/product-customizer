@@ -1,0 +1,18 @@
+<div class="block_collection">
+    <div class="product-list {{ class }}">
+        <div class="row">
+        {% assign product_per_page = product_per_page | plus: 0 %}
+        {% for product in products %}
+            {% if forloop.index <= product_per_page %}
+                <div class="item">
+                    <div class="product_list">
+                        {% include 'product-grid-item' %}
+                    </div>
+                </div>
+            {% else %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</div>

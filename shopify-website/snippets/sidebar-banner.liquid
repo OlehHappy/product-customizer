@@ -1,0 +1,7 @@
+{% if settings.sidebar_banner_enable %}
+	<div class="block">
+			<div class="effect banner">
+              {{ 'sidebar-banner.png' | asset_url | img_tag: "banner sidebar", "img-responsive" }}
+         	 </div>
+	</div>
+{% endif %}

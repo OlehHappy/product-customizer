@@ -1,0 +1,25 @@
+<div class="block-sidebar-blog block">
+    <h4 class="title_block">{{ 'blogs.sidebar.recent_articles' | t }}</h4>
+    <ul class="list-block list-unstyled">
+        {% for article in blogs[blog.handle].articles limit:6 %}
+            <li>
+                <a href="{{ article.url }}">{{ article.title }}</a>
+                <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% if blog.all_tags.size > 0 %}
+    <div class="block-sidebar-blog block">
+        <h4 class="title_block">{{ 'blogs.sidebar.categories' | t }}</h4>
+        <ul class="list-block list-unstyled">
+        {% for tag in blog.all_tags %}
+            {% if current_tags contains tag %}
+                <li>{{ tag }}</li>
+            {% else %}
+                <li>{{ tag | link_to_tag: tag }}</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}

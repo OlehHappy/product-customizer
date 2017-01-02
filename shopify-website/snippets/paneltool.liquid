@@ -1,0 +1,56 @@
+<div id="paneltool">
+    <div class="paneltool">
+        <div class="panelbutton">
+            {{ 'params.svg' | asset_url | img_tag }}
+        </div>
+        <div class="panelcontent ">
+            <div class="panelinner">
+                <span>Panel Tool</span>
+                <div class="group-input clearfix">
+                    <label class="control-label">{{ 'pin.svg' | asset_url | img_tag }} Float style</label>
+                    <div class="paneltool-update">
+                        <span class="control-span">Float header</span>
+                        <div class="float-control">
+                          <div class="onoffswitch">
+                              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="floatHeader" {% if settings.theme_float_style == 'keep-header' %}checked{% endif %}>
+                              <label class="onoffswitch-label" for="floatHeader">
+                                  <span class="onoffswitch-inner"></span>
+                                  <span class="onoffswitch-switch"></span>
+                              </label>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="paneltool-update">
+                        <span class="control-span">Float topbar</span>
+                        <div class="float-control">
+                          <div class="onoffswitch">
+                              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="floatTopbar" {% if settings.theme_float_style == 'keep-topbar' %}checked{% endif %}>
+                              <label class="onoffswitch-label" for="floatTopbar">
+                                  <span class="onoffswitch-inner"></span>
+                                  <span class="onoffswitch-switch"></span>
+                              </label>
+                          </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="group-input clearfix">
+                    <label class="control-label"><i class="fa fa-desktop"></i> Layout mode</label>
+                    <div class="layout-control clearfix">
+                        <span class="dynamic-update-layout paneltool-update {% if settings.theme_layout_mode == "layout-default" %}selected{% endif %}" data-layout-mode="layout-default">Default</span>
+                        <span class="dynamic-update-layout paneltool-update {% if settings.theme_layout_mode == "layout-boxed-lg" %}selected{% endif %}" data-layout-mode="layout-boxed-lg">Boxed Large</span>
+                        <span class="dynamic-update-layout paneltool-update {% if settings.theme_layout_mode == "layout-boxed-md" %}selected{% endif %}" data-layout-mode="layout-boxed-md">Boxed Medium</span>
+                    </div>
+                </div>
+              {% comment %}
+                 <div class="group-input clearfix">
+                    <label class="control-label"><i class="fa fa-header"></i> Header mode</label>
+                    <div class="layout-control clearfix">
+                        <span class="dynamic-update-header paneltool-update {% if settings.theme_header_style == "header-default" %}selected{% endif %}" data-header-style="header-default">Header Default</span>
+                        <span class="dynamic-update-header paneltool-update {% if settings.theme_header_style == "header-one" %}selected{% endif %}" data-header-style="header-one">Header One</span>
+                    </div>
+                </div>
+              {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>

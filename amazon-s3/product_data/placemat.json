@@ -1,0 +1,673 @@
+{
+  "name":"Placemat",
+  "key":"placemat",
+  "complexUrl": "http://pridebites-customizer.myshopify.com/products/custom-placemat",
+  "views":[
+    {
+      "key":"1st",
+      "index": 1,
+      "layers":[
+        {
+          "key":"piping",
+          "type":"image",
+          "zIndex": 2
+        },
+        {
+          "key":"top",
+          "type":"image",
+          "zIndex": 1
+        },
+        {
+          "key":"name",
+          "type":"text",
+          "zIndex": 3,
+          "defaults":{
+            "Size":60,
+            "imgSrc":"placeholder2",
+            "x":340,
+            "y":320,
+            "h":50,
+            "w":185,
+            "align":"center",
+            "x2":135,
+            "y2":28,
+            "h2":360,
+            "w2":590
+          }
+        },
+        {
+          "key":"photo",
+          "type":"none",
+          "zIndex": 4
+        }
+      ]
+    },
+    {
+      "key":"2nd",
+      "index": 2,
+      "layers":[
+        {
+          "key":"piping",
+          "type":"image",
+          "zIndex": 2
+        },
+        {
+          "key":"top",
+          "type":"image",
+          "zIndex": 1
+        },
+        {
+          "key":"photo",
+          "type":"none",
+          "zIndex": 4
+        },
+        {
+          "key":"name",
+          "type":"text",
+          "zIndex": 3,
+          "defaults":{
+            "Size":60,
+            "imgSrc":"placeholder2",
+            "x":340,
+            "y":245,
+            "h":50,
+            "w":185,
+            "align":"center",
+            "x2":185,
+            "y2":0,
+            "h2":300,
+            "w2":495
+          }
+        }
+      ]
+    },
+    {
+      "key": "3rd",
+      "index": 3,
+      "layers": [
+        {
+          "key": "piping",
+          "type": "image",
+          "zIndex": 3
+        },
+        {
+          "key": "top",
+          "type": "image",
+          "zIndex": 1
+        },
+        {
+          "key": "bowls",
+          "type": "static",
+          "zIndex": 4
+        }
+      ]
+    }
+  ],
+  "steps":[
+      {
+      "name": "Size",
+      "title": "Choose My Placemat's Size",
+      "simple": true,
+      "customizations": [
+        {
+          "field": "size",
+          "helpText": "Find the perfect size for your pup.",
+          "helpLinkText": "View Size Chart!",
+          "helpLink": "placemat-size-chart.jpg",
+          "staticContent": "#staticContentSizeChartTemplate",
+          "selectedValue": "regular",
+          "type": "Dropdown",
+          "variant": true,
+          "simple": true,
+          "options": [
+            {
+              "value": "regular",
+              "display": "Regular"
+            },
+            {
+              "value": "large",
+              "display": "Large (+$5)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Top",
+      "title": "Choose a Top Color",
+      "customizations":[
+        {
+          "field":"top",
+          "selectedValue":"dotsblue",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"red",
+              "display":"c2002f"
+            },
+            {
+              "value":"orange",
+              "display":"f68d29"
+            },
+            {
+              "value":"yellow",
+              "display":"ffd923"
+            },
+            {
+              "value":"teal",
+              "display":"9cd8d8"
+            },
+            {
+              "value":"green",
+              "display":"009877"
+            },
+            {
+              "value":"blue",
+              "display":"005cb8"
+            },
+            {
+              "value":"purple",
+              "display":"853175"
+            },
+            {
+              "value":"pink",
+              "display":"e51992"
+            },
+            {
+              "value":"black",
+              "display":"000000"
+            },
+            {
+              "value":"white",
+              "display":"ffffff"
+            },
+            {
+              "value":"lightgray",
+              "display":"b4b2b2"
+            },
+            {
+              "value":"tan",
+              "display":"cfb4a7"
+            },
+            {
+              "value":"brown",
+              "display":"5d3326"
+            },
+            {
+              "value":"darkgreen",
+              "display":"404726"
+            },
+            {
+              "value":"navyblue",
+              "display":"003763"
+            },
+            {
+              "value":"wine",
+              "display":"79232e"
+            },
+            {
+              "groupImg":"plaid1.png",
+              "display":"Plaid",
+              "options":[
+                {
+                  "imgSrc":"plaid1.png",
+                  "value":"plaidtan",
+                  "label":"Tan"
+                },
+                {
+                  "imgSrc":"plaid2.png",
+                  "value":"plaidblue",
+                  "label":"Blue"
+                },
+                {
+                  "imgSrc":"plaid3.png",
+                  "value":"plaidblack",
+                  "label":"Black"
+                },
+                {
+                  "imgSrc":"plaid4.png",
+                  "value":"plaidpink",
+                  "label":"Pink"
+                }
+              ]
+            },
+            {
+              "groupImg":"bones4.png",
+              "display":"Bones",
+              "options":[
+                {
+                  "imgSrc":"bones1.png",
+                  "value":"bonesgreen",
+                  "label":"Green"
+                },
+                {
+                  "imgSrc":"bones2.png",
+                  "value":"bonesteal",
+                  "label":"Teal"
+                },
+                {
+                  "imgSrc":"bones4.png",
+                  "value":"bonesgray",
+                  "label":"Pink"
+                },
+                {
+                  "imgSrc":"bones3.png",
+                  "value":"bonesblue",
+                  "label":"NavyBlue"
+                }
+              ]
+            },
+            {
+              "groupImg":"paw1.png",
+              "display":"Paws",
+              "options":[
+                {
+                  "imgSrc":"paw1.png",
+                  "value":"pawsgreen",
+                  "label":"Green"
+                },
+                {
+                  "imgSrc":"paw2.png",
+                  "value":"pawsteal",
+                  "label":"Teal"
+                },
+                {
+                  "imgSrc":"paw3.png",
+                  "value":"pawsblue",
+                  "label":"NavyBlue"
+                },
+                {
+                  "imgSrc":"paw4.png",
+                  "value":"pawspink",
+                  "label":"Pink"
+                }
+              ]
+            },
+            {
+              "groupImg":"circdots1.png",
+              "display":"DotsCircle",
+              "options":[
+                {
+                  "imgSrc":"circdots1.png",
+                  "value":"circledotsgray",
+                  "label":"Gray"
+                },
+                {
+                  "imgSrc":"circdots2.png",
+                  "value":"circledotspurple",
+                  "label":"Purple"
+                },
+                {
+                  "imgSrc":"circdots3.png",
+                  "value":"circledotstan",
+                  "label":"Tan"
+                },
+                {
+                  "imgSrc":"circdots4.png",
+                  "value":"circledotsyellow",
+                  "label":"Yellow"
+                }
+              ]
+            },
+            {
+              "groupImg":"camoblack.png",
+              "display":"Camo",
+              "options":[
+                {
+                  "imgSrc":"camoblack.png",
+                  "value":"camoblack",
+                  "label":"Black"
+                },
+                {
+                  "imgSrc":"camoblue.png",
+                  "value":"camoblue",
+                  "label":"Blue"
+                },
+                {
+                  "imgSrc":"camogreen.png",
+                  "value":"camogreen",
+                  "label":"Green"
+                },
+                {
+                  "imgSrc":"camopink.png",
+                  "value":"camopink",
+                  "label":"Pink"
+                }
+              ]
+            },
+            {
+              "groupImg":"chevron1.png",
+              "display":"Chevron",
+              "options":[
+                {
+                  "imgSrc":"chevron1.png",
+                  "value":"chevrongreen",
+                  "label":"Green"
+                },
+                {
+                  "imgSrc":"chevron2.png",
+                  "value":"chevronpink",
+                  "label":"Pink"
+                },
+                {
+                  "imgSrc":"chevron3.png",
+                  "value":"chevrongray",
+                  "label":"Gray"
+                },
+                {
+                  "imgSrc":"chevron4.png",
+                  "value":"chevronwine",
+                  "label":"Wine"
+                }
+              ]
+            },
+            {
+              "groupImg":"dots1.png",
+              "display":"Polkadots",
+              "options":[
+                {
+                  "imgSrc":"dots1.png",
+                  "value":"dotsbrown",
+                  "label":"Brown"
+                },
+                {
+                  "imgSrc":"dots2.png",
+                  "value":"dotsblue",
+                  "label":"Blue"
+                },
+                {
+                  "imgSrc":"dots3.png",
+                  "value":"dotspink",
+                  "label":"Pink"
+                },
+                {
+                  "imgSrc":"dots4.png",
+                  "value":"dotsblack",
+                  "label":"Black"
+                }
+              ]
+            },
+            {
+              "groupImg":"stripes1.png",
+              "display":"Stripes",
+              "options":[
+                {
+                  "imgSrc":"stripes1.png",
+                  "value":"stripesyellow",
+                  "label":"Yellow"
+                },
+                {
+                  "imgSrc":"stripes2.png",
+                  "value":"stripesgreen",
+                  "label":"Green"
+                },
+                {
+                  "imgSrc":"stripes3.png",
+                  "value":"stripestan",
+                  "label":"Tan"
+                },
+                {
+                  "imgSrc":"stripes4.png",
+                  "value":"stripespink",
+                  "label":"Pink"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Piping",
+      "title": "Choose a Piping Color",
+      "customizations":[
+        {
+          "field":"piping",
+          "selectedValue":"wine",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"red",
+              "display":"c2002f"
+            },
+            {
+              "value":"orange",
+              "display":"f68d29"
+            },
+            {
+              "value":"yellow",
+              "display":"ffd923"
+            },
+            {
+              "value":"teal",
+              "display":"9cd8d8"
+            },
+            {
+              "value":"green",
+              "display":"009877"
+            },
+            {
+              "value":"blue",
+              "display":"005cb8"
+            },
+            {
+              "value":"purple",
+              "display":"853175"
+            },
+            {
+              "value":"pink",
+              "display":"e51992"
+            },
+            {
+              "value":"black",
+              "display":"000000"
+            },
+            {
+              "value":"white",
+              "display":"ffffff"
+            },
+            {
+              "value":"lightgray",
+              "display":"b4b2b2"
+            },
+            {
+              "value":"tan",
+              "display":"cfb4a7"
+            },
+            {
+              "value":"brown",
+              "display":"5d3326"
+            },
+            {
+              "value":"darkgreen",
+              "display":"404726"
+            },
+            {
+              "value":"navyblue",
+              "display":"003763"
+            },
+            {
+              "value":"wine",
+              "display":"79232e"
+            }
+          ]
+        }
+      ]
+    },
+	    {
+      "name":"Name",
+      "title": "Add My Dog's Name",
+      "simple": true,
+      "customizations":[
+        {
+          "field":"text",
+          "helpText": "Want to see more design options?",
+          "helpLinkText": "Start Customizing!",
+          "helpLink": "CustomToolButton",
+          "display":"Add your dog's name",
+          "selectedValue":"",
+          "simple": true,
+          "type":"Text"
+        },
+        {
+          "field":"banner",
+          "label":"Choose a Banner",
+          "selectedValue":"oval",
+          "type":"ImageRadio",
+          "optionScope":"global",
+          "options":[
+            {
+              "value":"oval",
+              "displayUrl":"oval.png"
+            },
+            {
+              "value":"vintage",
+              "displayUrl":"vintage.png"
+            },
+            {
+              "value":"hardware",
+              "displayUrl":"hardware.png"
+            },
+            {
+              "value":"bone",
+              "displayUrl":"bone.png"
+            }
+          ]
+        },
+        {
+          "field":"font",
+          "label":"Choose a Font",
+          "selectedValue":"BigDog.TTF",
+          "type":"Dropdown",
+          "options":[
+            {
+              "value":"playfulpup.TTF",
+              "display":"Playful Pup"
+            },
+            {
+              "value":"classycanine.ttf",
+              "display":"Classy Canine"
+            },
+            {
+              "value":"bigdog.TTF",
+              "display":"Big DOG"
+            },
+            {
+              "value":"console.TTF",
+              "display":"Console"
+            }
+          ]
+        },
+        {
+          "field":"textcolor",
+          "label":"Choose a Font Color",
+          "selectedValue":"Black",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"Red",
+              "display":"c2002f",
+              "label":"Red"
+            },
+            {
+              "value":"Orange",
+              "display":"f68d29",
+              "label":"Orange"
+            },
+            {
+              "value":"Yellow",
+              "display":"ffd923",
+              "label":"Yellow"
+            },
+            {
+              "value":"Teal",
+              "display":"9cd8d8",
+              "label":"Teal"
+            },
+            {
+              "value":"Green",
+              "display":"009877",
+              "label":"Green"
+            },
+            {
+              "value":"Blue",
+              "display":"005cb8",
+              "label":"Blue"
+            },
+            {
+              "value":"Purple",
+              "display":"853175",
+              "label":"Purple"
+            },
+            {
+              "value":"Pink",
+              "display":"e51992",
+              "label":"Pink"
+            },
+            {
+              "value":"Black",
+              "display":"000000",
+              "label":"Black"
+            },
+            {
+              "value":"LightGray",
+              "display":"b4b2b2",
+              "label":"LightGray"
+            },
+            {
+              "value":"Tan",
+              "display":"cfb4a7",
+              "label":"Tan"
+            },
+            {
+              "value":"Brown",
+              "display":"5d3326",
+              "label":"Brown"
+            },
+            {
+              "value":"DarkGreen",
+              "display":"404726",
+              "label":"DarkGreen"
+            },
+            {
+              "value":"NavyBlue",
+              "display":"003763",
+              "label":"NavyBlue"
+            },
+            {
+              "value":"Wine",
+              "display":"79232e",
+              "label":"Wine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Photo",
+      "title": "Upload My Dog's Photos",
+      "helpText": "To learn what pictures to upload",
+      "helpLinkText": "Click Here",
+      "helpLink": "image-upload.jpg",
+      "simple": true,
+      "staticContent":"#staticContentUploadTemplate",
+      "customizations":[
+        {
+          "field":"image1",
+          "simple": true,
+          "type":"ImageUpload"
+        },
+        {
+          "field":"image2",
+          "simple": true,
+          "type":"ImageUpload"
+        },
+        {
+          "field":"image3",
+          "simple": true,
+          "type":"ImageUpload"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+.pbc-development-preview {
+  background: #e6e6e6;
+  margin: 20px auto;
+  max-width: 1170px;
+
+  @media (max-width: 1170px) {
+    margin: 20px;
+    width: auto;
+  }
+}
+
+.pbc-app-container {
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  margin: 0 auto 20px;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  @media (max-width: 991px) {
+    display: block;
+    margin: 0;
+    width: auto;
+  }
+}
+
+.pbc-preview {
+  background: #fff;
+  float: left;
+  text-align: center;
+  width: 74.7863248%;
+}
+
+.pbc-options {
+  background: #fff;
+  box-sizing: border-box;
+  float: right;
+  margin-left: 20px;
+  padding: 10px;
+  width: 23.5042735%;
+}
+
+.pbc-preview, .pbc-options {
+  @media (max-width: 991px) {
+    display: block;
+    float: none;
+    margin: 0 0 20px;
+    width: auto;
+  }
+}

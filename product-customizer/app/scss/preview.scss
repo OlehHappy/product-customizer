@@ -1,0 +1,62 @@
+.pbc-preview-layer {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &:first-child {
+    position: relative;
+  }
+}
+
+.pbc-preview-layer-banner {
+  position: absolute;
+  left:0;
+  top:0;
+  cursor: pointer;
+}
+
+.pbc-preview-option {
+  cursor: pointer;
+  margin: 20px 10px;
+
+  &.selected {
+    opacity: 0.5;
+  }
+}
+
+.pbc-additional-info {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 300;
+  overflow: auto;
+  padding: 20px;
+  text-align: left;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0 0 0 7px;
+
+    li:before {
+      content: '-';
+      left: -5px;
+      position: relative;
+    }
+  }
+
+  .pbc-description {
+    float: left;
+    width: 50%;
+  }
+
+  .pbc-features {
+    float: right;
+    width: 30%;
+  }
+}

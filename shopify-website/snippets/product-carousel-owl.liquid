@@ -1,0 +1,78 @@
+{% unless row_in_tab %}
+	{% assign row_in_tab = 1 %}
+{% endunless %}
+{% unless check_iterm_special %}
+	{% assign check_iterm_special = false %}
+{% endunless %}
+
+{% if check_iterm_special == false %}
+	{% if row_in_tab == 1 %}
+		<div class="row">
+			<div class="owl-carousel owl-theme">
+				{% assign grid_item_width = ' ' %}
+				{% assign products = collection_produclists %}
+				{% for product in products limit:product_in_tab %}
+						<div class="item">
+							{% include 'product-grid-item' %}
+						</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<div class="row">
+			<div class="owl-carousel owl-theme">
+				{% assign grid_item_width = ' ' %}
+				{% assign products = collection_produclists %}
+				{% for product in products limit:product_in_tab %}
+				  		{% assign modpage = forloop.index | modulo:row_in_tab %}
+				  		{% if forloop.first %}
+							<div class="item">
+				        {% endif %}
+							{% include 'product-grid-item' %}
+				        {% if forloop.last %}
+							</div>
+				        {% elsif modpage == 0 %}
+				        	</div><div class="item">
+				        {% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+	{% endif %}
+{% else %}
+	{% if row_in_tab == 1 %}
+		<div class="row">
+			<div class="owl-carousel owl-theme">
+				{% assign grid_item_width = ' ' %}
+				{% assign products = collection_produclists %}
+				{% for product in products limit:product_in_tab %}
+						<div class="item">
+							{% include 'product-grid-item-special' %}
+						</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<div class="row">
+			<div class="owl-carousel owl-theme">
+			{% assign grid_item_width = ' ' %}
+			{% assign products = collection_produclists %}
+			{% for product in products limit:product_in_tab %}
+			  		{% assign modpage = forloop.index | modulo:row_in_tab %}
+			  		{% if forloop.first %}
+						<div class="item">
+			        {% endif %}
+						{% include 'product-grid-item-special' %}
+			        {% if forloop.last %}
+						</div>
+			        {% elsif modpage == 0 %}
+			        	</div><div class="item">
+			        {% endif %}
+			{% endfor %}
+			</div>
+		</div>
+
+	{% endif %}
+{% endif %}
+
+{% comment %}{% if modpage == 0 %}</div><div class="row">{% endif %}{% endcomment %}

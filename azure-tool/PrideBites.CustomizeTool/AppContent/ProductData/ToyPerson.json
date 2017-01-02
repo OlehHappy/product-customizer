@@ -1,0 +1,129 @@
+﻿{
+    "category": "toys",
+    "name": "X-Person",
+	"description" : "Dogs revenge",
+    "basePrice": 24,
+    "views": [],
+    "steps": [
+        {
+			"id": "styles",
+            "name": "styles",
+            "type": "tab",
+            "attributes": [
+                {
+                    "name": "Gender",
+                    "viewId": "front",
+                    "customizations": [
+                        {
+                            "field": "personGender",
+                            "type": "imageRadio",
+                            "options": [
+                                {
+                                    "value": "Male",
+                                    "displayUrl": "/xPersonMale"
+                                },
+                                {
+                                    "value": "Female",
+                                    "displayUrl": "/xPersonFemale"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Outfit",
+                    "viewId": "body",
+                    "customizations": [
+                        {
+                            "field": "maleOutfit",
+                            "gender": "male",
+                            "type": "imageRadio",
+                            "options": [
+                                {
+                                    "value": "suit",
+                                    "displayText": "Suit",
+                                    "displayUrl": "mSuit.png"
+                                },
+                                {
+                                    "value": "redShirt",
+                                    "displayText": "Red Shirt / Brown Shorts",
+                                    "displayUrl": "redShirt.png"
+                                },
+                                {
+                                    "value": "blueShirt",
+                                    "displayText": "Blue Shirt / Orange Pants",
+                                    "displayUrl": "redShirt.png"
+                                }
+                            ]
+                        },
+                        {
+                            "field": "femaleOutfit",
+                            "gender": "female",
+                            "type": "textRadio",
+                            "options": [
+                                {
+                                    "value": "suit",
+                                    "displayText": "Suit",
+                                    "displayUrl": "fSuit.png"
+                                },
+                                {
+                                    "value": "yellowDress",
+                                    "displayText": "Yellow Dress",
+                                    "displayUrl": "yellowDress.png"
+                                },
+                                {
+                                    "value": "bathingSuit",
+                                    "displayText": "Bathing Suit",
+                                    "displayUrl": "bathingSuit.png"
+                                },
+                                {
+                                    "value": "tankTop",
+                                    "displayText": "Tank Top and Shorts",
+                                    "displayUrl": "tankTop.png"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+       	{
+			"id": "personalize",
+            "name": "Personalize",
+			"type": "list",			
+            "attributes": [
+                {
+                    "viewId": "side",
+                    "customizations": [
+                        {
+                            "field": "petName",
+							"display" : "Add your dog's name: ",
+							"selectedValue": "",
+                            "type": "text"
+                        },
+                        {
+                            "field": "personImage",
+							"display" : "Upload Images: ",
+							"selectedValue": "top",
+                            "type": "imageUpload",
+                            "options": [
+                                {
+									"field": "disc1",
+									"required": "true"
+								},
+								{
+									"field": "disc1",
+									"required": "true"
+								},
+								{
+									"field": "disc1",
+									"required": "false"
+								}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

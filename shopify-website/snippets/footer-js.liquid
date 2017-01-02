@@ -1,0 +1,74 @@
+{{ 'timber.js' | asset_url | script_tag }}
+{% if settings.slider_home_enable %}
+	{{ 'jquery.flexslider.min.js' | asset_url | script_tag }}
+{% endif %}
+<script>
+	{% if newHash %}
+		$(function() {
+			timber.updateHash('{{ newHash }}');
+		});
+	{% endif %}
+	{% if resetPassword %}
+		$(function() {
+			timber.resetPasswordSuccess();
+		});
+	{% endif %}
+</script>
+{% if settings.ajax_cart_enable %}
+	{{ 'handlebars.min.js' | asset_url | script_tag }}
+	{% include 'ajax-cart-template' %}
+	{{ 'ajaxify.js' | asset_url | script_tag }}
+	<script>
+		jQuery(function($) {
+		ajaxifyShopify.init({
+			method: '{{ settings.ajax_cart_method }}',
+			wrapperClass: 'wrapper',
+			formSelector: '.form-ajaxtocart',
+			addToCartSelector: '.ajax_addtocart',
+			cartCountSelector: '#CartCount',
+			cartCostSelector: '#CartCost',
+			toggleCartButton: '#CartToggle',
+			useCartTemplate: true,
+			btnClass: 'btn',
+			moneyFormat: {{ shop.money_format | json }},
+			disableAjaxCart: false,
+			enableQtySelectors: true,
+			prependDrawerTo: 'body'
+			});
+		});
+	</script>
+{% endif %}
+{{ 'fastclick.min.js' | asset_url | script_tag }}
+{{ 'owl.carousel.min.js' | asset_url | script_tag }}
+{% include 'new-currency' %}
+{{ 'jquery.mmenu.min.all.js' | asset_url | script_tag }}
+<script>
+	jQuery(function() {
+		jQuery('.swatch :radio').change(function() {
+	    	var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+	    	var optionValue = jQuery(this).val();
+	    	jQuery(this)
+  			.closest('form')
+      		.find('.single-option-selector')
+      		.eq(optionIndex)
+      		.val(optionValue)
+      		.trigger('change');
+	  	}); 
+	});
+</script>
+<script>
+ !function (cash) {
+  $(function(){
+   $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { 
+    e.stopPropagation(); 
+            });
+           $(document.body).on('click', '[data-toggle="dropdown"]' ,function(){
+                if(!$(this).parent().hasClass('open') && this.href && this.href != '#'){
+                    window.location.href = this.href;
+                }
+            });
+  })
+ }(window.jQuery)
+</script>
+{{ '//api.filepicker.io/v2/filepicker.js' | script_tag }}
+{{ '//pridebites-customizer.s3.amazonaws.com/code/main.js' | script_tag }}

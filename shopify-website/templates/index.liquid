@@ -1,0 +1,154 @@
+<section id="columns" class="columns-container">
+	<div id="top_column" {% if settings.lazyload_enable %}class="wow animated {{ settings.lazyload_topcolumn }}"{% endif %}>
+		<div class="container">
+			{% if settings.home_blockhtml_enable %}
+				<div class="home_html">
+					{% include 'block-htmlhome' %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+  	<div id="top_newsletter_column">
+    	<div class="row {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_protop }}{% endif %}">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                {% include 'block-home-newsletter' with '01' %}
+              </div>
+            </div>
+          </div>
+      </div>
+  	</div>
+	<div id="center_column" class="center_column">
+		<div class="container">
+          	 
+  
+<div id="newsletter_block" class="block footer-block inline" style="margin-bottom: 0; padding-top: 30px; padding-bottom: 15px;">
+  	 <div class="container product-section">
+  {% include 'front-easyas' %}
+  </div>
+  </div>
+          
+          	<div class="row row-block {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_protop }}{% endif %}">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					{% if settings.home_productlists_enable %}
+						{% assign item_in_page = 8 %}
+						{% assign arrayItems = "8,16,24,32" | split: ',' %}
+						{% assign grid_item_width = 'col-md-3 col-xs-6 col-sp-12' %}
+						{% assign row_in_tab = 2 %}
+						{% assign check_iterm_special = false %}
+						{% include 'block-productlist' with '01' %}
+					{% endif %}
+				</div>
+			</div>
+          
+                    			<div class="row row-block {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_protop }}{% endif %}">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					{% if settings.home_productlists_enable %}
+						{% assign item_in_page = 8 %}
+						{% assign arrayItems = "8,16,24,32" | split: ',' %}
+						{% assign grid_item_width = 'col-md-3 col-xs-6 col-sp-12' %}
+						{% assign row_in_tab = 2 %}
+						{% assign check_iterm_special = false %}
+						{% include 'block-productlist2' with '01' %}
+					{% endif %}
+				</div>
+			</div>
+
+          
+          	<div class="row {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_protop }}{% endif %}">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					{% if settings.home_productlists_enable_our_offer %}
+						{% assign product_in_tab = 12 %}
+						{% assign item_in_page = 1 %}
+						{% assign arrayItems = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" | split: ',' %}
+						{% assign grid_item_width = 'col-md-12 col-xs-12 col-sp-12' %}
+						{% assign row_in_tab = 1 %}
+						{% assign check_iterm_special = true %}
+						{% include 'block-productlist-our-offer' with '01' %}
+					{% endif %}
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					{% if settings.home_productlists_enable_last_deal %}
+						{% assign item_in_page = 2 %}
+						{% assign arrayItems = "2,4,6,8,10,12,14,16" | split: ',' %}
+						{% assign grid_item_width = 'col-md-6 col-xs-6 col-sp-12' %}
+						{% assign row_in_tab = 1 %}
+						{% assign check_iterm_special = false %}
+						{% include 'block-productlist-last-deal' with '01' %}
+					{% endif %}
+				</div>
+			</div>
+      </div>
+     <div class="background-white-wrapper">
+	<div class="container">
+
+			<div class="row row-block">
+				<div class="col-xs-12 col-sm-6 col-md-6 {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_bloghome }}{% endif %}">
+					{% if settings.html_bottom_enable %}
+						<div class="html-custom">
+                            {{ settings.html_bottom_information }}
+                        </div>
+					{% endif %}
+                    {% if settings.newsletter_enable %}
+                      {% include 'block-newsletter' %}
+                    {% endif %}
+                    
+				</div>
+              	<div class="col-xs-12 col-sm-6 col-md-6 {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_bloghome }}{% endif %}">
+                  	{% if settings.banner_bottom_enable %}
+						<div class="banner_bottom">
+                            {{ 'banner_bottom.png' | asset_url | img_tag: settings.home_blockhtml_tilte_1, "img-responsive" }}
+                        </div>
+					{% endif %}
+				</div>
+			</div>
+       </div>
+      </div>
+      <div class="container">
+			<div class="row row-block">
+              <div class="col-xs-12">
+                {% if settings.home_blogs_enable == false && settings.testimonials_enable && settings.testimonials_title !="" %}
+              	<div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                  	<h3 class="page-subheading">{{ settings.testimonials_title }}  | <a href="/pages/testimonials"><span style="font-size: 14px; color: #D82634;">SEE ALL REVIEWS ></span></a></h3>
+                  </div>
+              	</div>
+              	{% endif %}
+				
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6 {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_bloghome }}{% endif %}">
+                      {% if settings.home_blogs_enable %}
+                          {% include 'block-blog' with '01' %}
+                      {% elsif settings.testimonials_enable %}
+                          {% include 'block-testimonials', load_testimonial: 1 %}
+                      {% endif %}
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_bloghome }}{% endif %}">
+                      {% if settings.testimonials_enable %}
+                          {% include 'block-testimonials', load_testimonial: 2 %}
+                      {% endif %}
+                  </div>
+                </div>
+              </div>
+			</div>
+			
+			<div class="row {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_manu }}{% endif %}">
+				<div class="col-xs-12 col-sm-12">
+					{% if settings.home_vendor_carousel_enable %}
+						{% include 'block-manucarousel' with '01' %}
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="row background-style {% if settings.lazyload_enable %}wow animated {{ settings.lazyload_homemass }}{% endif %}">
+				<div class="col-xs-12 col-sm-12">
+					{% if settings.block_accessories_enable %}
+	                    {% include 'block-colection-accessories' %}
+	                {% endif %}
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>

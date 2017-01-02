@@ -1,0 +1,113 @@
+{
+  "name":"X-Person",
+  "key":"x-person",
+  "views":[
+
+  ],
+  "steps":[
+    {
+      "name":"Gender",
+      "customizations":[
+        {
+          "field":"personGender",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"Male",
+              "displayUrl":"/xPersonMale"
+            },
+            {
+              "value":"Female",
+              "displayUrl":"/xPersonFemale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Outfit",
+      "customizations":[
+        {
+          "field":"maleOutfit",
+          "gender":"male",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"suit",
+              "displayText":"Suit",
+              "displayUrl":"mSuit.png"
+            },
+            {
+              "value":"redShirt",
+              "displayText":"Red Shirt / Brown Shorts",
+              "displayUrl":"redShirt.png"
+            },
+            {
+              "value":"blueShirt",
+              "displayText":"Blue Shirt / Orange Pants",
+              "displayUrl":"redShirt.png"
+            }
+          ]
+        },
+        {
+          "field":"femaleOutfit",
+          "gender":"female",
+          "type":"ImageRadio",
+          "options":[
+            {
+              "value":"suit",
+              "displayText":"Suit",
+              "displayUrl":"fSuit.png"
+            },
+            {
+              "value":"yellowDress",
+              "displayText":"Yellow Dress",
+              "displayUrl":"yellowDress.png"
+            },
+            {
+              "value":"bathingSuit",
+              "displayText":"Bathing Suit",
+              "displayUrl":"bathingSuit.png"
+            },
+            {
+              "value":"tankTop",
+              "displayText":"Tank Top and Shorts",
+              "displayUrl":"tankTop.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"side",
+      "customizations":[
+        {
+          "field":"text",
+          "display":"Add your dog's name: ",
+          "selectedValue":"",
+          "type":"Text"
+        },
+        {
+          "field":"personImage",
+          "display":"Upload Images: ",
+          "selectedValue":"top",
+          "type":"ImageUpload",
+          "options":[
+            {
+              "field":"disc1",
+              "required":"true"
+            },
+            {
+              "field":"disc1",
+              "required":"true"
+            },
+            {
+              "field":"disc1",
+              "required":"false"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

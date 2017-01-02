@@ -1,0 +1,131 @@
+{% unless grid_item_width %}
+    {% assign grid_item_width = 'col-md-3 col-xs-6 col-sp-12' %}
+{% endunless %}
+{% unless current_collection == blank %}
+    {% assign current_collection = collection %}
+{% endunless %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+{% endif %}
+{% assign sold_out = true %}
+{% if product.available  %}
+    {% assign sold_out = false %}
+{% endif %}
+{% assign imagesize = settings.home_product_imagesize %}
+
+<div class="product_block {{ grid_item_width }}">
+    <div class="product-container text-center product-block">
+        <h5 class="name">
+            <a class="product-name" href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title }}</a>
+        </h5>
+        <div class="product-image-container image">
+            {% if settings.theme_wishlist_enable %}
+            {% include 'wishlist-product' %}
+            {% endif %}
+            <a class="product_img_link" href="{{ product.url | within: collection }}" title="{{ product.title }}">
+                <img class="replace-2x img-responsive" src="{{ product.featured_image | product_img_url: imagesize }}" alt="{{ product.title }}">
+                {% if settings.theme_more_pimages_enable and settings.theme_more_pimages_option == 'showone' %}
+                    {% include 'product-more-image' %}
+                {% endif %}
+            </a>
+            {% if settings.theme_more_pimages_enable and settings.theme_more_pimages_option == 'showmore' %}
+                {% include 'product-more-image' %}
+            {% endif %}
+            
+            <span class="new-box hidden">
+                <span class="label-new label">New</span>
+            </span>
+            {% if on_sale %}
+                <span class="sale-box">
+                    <span class="label-sale label">{{ 'products.product.on_sale_from_html' | t }}</span>
+                </span>
+            {% endif %}
+        </div>
+        <div class="product-meta clearfix">
+          	<div class="clearfix">
+            <div class="cart">
+              {% assign variantCount = product.variants | size %}
+              <div class="action">
+                <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                  {% if sold_out %}
+                  <input type="submit" value="{{ 'products.product.unavailable' | t }}" class="ajax_addtocart disabled" />
+                  {% else %}
+                  <a class="ajax_addtocart btn btn-outline-reverse" href="{{ product.url | within: collection }}" title="{{ product.title }}">
+                  	{% assign product_tags_string = product.tags | join ' ' %}
+                    {% if product_tags_string contains 'custom' %}
+                    Personalize Now
+                    {% else %}
+                    Shop Now
+                    {% endif %}
+                  </a>
+                  {% endif %}
+                </form> 
+              </div> 
+          </div>
+            <div class="product_price">
+                <div class="content_price">
+                  	{% if on_sale %}
+                        <span class="old-price product-price">{{ product.compare_at_price | money }}</span>
+                    {% endif %}
+                    <span class="price product-price {% if on_sale %}sale-price{% endif %}">
+                       {{product.price | money }}
+                    </span>
+                </div>
+                {% if settings.product_reviews_enable %}
+                    <div class="review">
+                        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                        {% comment %}<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>{% endcomment %}
+                    </div>
+                {% endif %}
+            </div>
+          </div>
+<!--        <div class="product-desc">{{ product.description | truncate:100,'...' }}</div> -->
+
+            <!--<div class="functional-buttons clearfix">
+                <div class="cart">
+                    {% assign variantCount = product.variants | size %}
+                    <div class="action">
+                        <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart">
+                            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                            {% if sold_out %}
+                                <input type="submit" value="{{ 'products.product.unavailable' | t }}" class="ajax_addtocart disabled" />
+                            {% else %}
+                                {% if variantCount > 1 %}
+                                    <a class="ajax_addtocart btn btn-outline" href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ 'products.product.select_options' | t }}</a>
+                                {% else %}
+                                    <input type="submit" value="Personalize Now" class="ajax_addtocart btn btn-outline" />
+                                {% endif %}
+                            {% endif %}
+                        </form> 
+                    </div> 
+                </div>
+                <div class="box-button">
+                    {% if settings.theme_wishlist_enable %}
+                    {% include 'wishlist-product' %}
+                    {% endif %}
+                    <div class="view_detail">
+                    <a class="lnk_view" href="{{ product.url | within: collection }}" data-toggle="tooltip" data-placement="top" data-original-title="View" title="View">
+                            <i class="fa fa-info"></i><span></span>
+                        </a>
+                    </div>
+                    {% if settings.theme_quickview_enable %}
+                        <div class="quickview">
+                            <a class="quick-view" href="#quick-view-product" data-handle="{{ product.handle }}" data-toggle="tooltip" data-placement="top" data-original-title="{{ 'general.quickview.title' | t }}">
+                                <i class="fa fa-eye"></i>
+                                <span>{{ 'general.quickview.title' | t }}</span>
+                            </a>
+                        </div>
+                    {% endif %} 
+                </div>
+                
+            </div>-->
+          	
+          	{% if dealTime %}
+                {% include 'block-productdeal' %}
+            {% endif %}
+          
+        </div>
+    </div>
+</div>

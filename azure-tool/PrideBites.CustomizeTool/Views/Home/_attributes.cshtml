@@ -1,0 +1,53 @@
+﻿<script type="text/x-underscore" id="tabHeaderTemplate">
+    @*css: { active : userState.selectedAttribute() == 'attribute-<%= attribute.name%>' },*@
+    <li data-bind="click: function(){userState.selectedAttribute('attribute-<%= attribute.name%>');}" class="attribute-<%= attribute.name%>" style="width: <%= (100/attributeCount) %>%">
+        <a href="#tab-<%= attribute.name %>"><%= attribute.displayName || attribute.name%></a>
+        <div class="arrow-down"></div>
+    </li>
+</script>
+
+<script type="text/x-underscore" id="tabContentTemplate">    
+    @*data-bind="css: { active : userState.selectedAttribute() == 'attribute-<%= attribute.name%>' }"*@
+        <div class="tab-pane" id="tab-<%= attribute.name%>" >
+            <%= _.template( $("#attributeTemplate").html(), { "product": product, "attribute": attribute}) %>
+            
+            @*<% if( attribute.name == 'Photo'){%>
+            @*<button id="btnSave" class="btn btn-primary">ADD TO CART</button>
+            <div class="delivery-notice">Estimated delivery: 4 weeks</div>
+            <%}else{%>
+            <a class="nextAttribute btn btn-primary">Continue</a> @*This will probably go in the attributeTemplate or something like it.
+            <%}%>*@
+        </div>    
+</script>
+
+<script type="text/x-underscore" id="attributeTemplate">
+    <div class="attribute-content" data-attribute="<%= attribute.name%>">
+        <% _.each(attribute.customizations, function(customization) { %>
+        <div id="customization-<%= customization.field%>" class="fieldCustomization">
+            <% var templateName = '#' + customization.type + 'Template'; %>
+            <%= _.template( $(templateName).html(), { 'product':product, 'customization':customization}) %>
+        </div>
+        <%});%>
+        <% if (attribute.staticContent) { %>
+        <%= _.template( $(attribute.staticContent).html(), {}) %>
+        <%};%>
+        <a class="nextAttribute btn btn-primary center-block">Next</a>
+    </div>
+</script>
+
+<script type="text/x-underscore" id="staticContentUploadTemplate">
+    <p class="perfect">Choose the perfect picture</p>
+    <p class="images">All dogs will be hand drawn by our artists.</p>
+    <p class="image">The better the images we recieve the better your design!</p>
+    
+    <p class="photo"><img style="width:100%;" src="<%= window.OptionRoot %>photo-do.png" /></p>
+    <p class="photo"><img style="width:100%;" src="<%= window.OptionRoot %>photo-dont.png" /></p>
+</script>
+
+<script type="text/x-underscore" id="staticContentSizeChartTemplate">
+    <a id="size-chart" class="center-block text-center">Size Chart</a>
+</script>
+
+@Html.Partial("_customizations")
+
+

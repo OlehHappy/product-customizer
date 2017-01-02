@@ -1,0 +1,259 @@
+﻿{
+    "name": "Collar",
+	"displayName": "PRIDEBITES Collar",
+    "description": "Our ultra soft cotton stuffed custom dog collars are fit for royalty. The removable outer shell is made of our famous Durabite fleece, which makes it comfortable and easily to wash. Get one that matches your dogs personality, or your decor. It's your choice!",
+    "basePrice": 16.99,
+	"helpText" : { "Collar" :"Need some help? I’m here to assist you through the process! First, choose the collar size that works best for your dog, then click “Ribbon” to continue.",
+				   "styles" : "A little extra stlye never hurt anyone.",
+				   "attribute-Size" : "Choose the collar size that works best for your dog, then click “Top” to continue.",
+				   "attribute-Top" : "Choose your favorite color or design for the top of your collar, then click “Side” to continue.",
+				   "attribute-Ribbon" : "Choose your favorite color for the ribbon, then it's time to customize the buckle.",
+                   "attribute-Buckle" : "Whoa now, this collar is looking great! Do you do this professionally? You're almost done. Now choose your favorite color for the buckle, and then it's time to personalize.",
+				   "personalize" : "Add your dog's name so everyone knows it is theirs",
+				   "attribute-Name" : "Write your dog's name and choose your favorite font and color",
+				   "complete" : "All finished! Click “Add to Cart” to checkout. Don’t worry you can continue shopping from there if you want.  You’re about to have a very happy dog!"
+				 },
+	"predefinedSelections": [
+        { "Ribbon": "Diamonds", "Buckle":"Purple"},
+		{ "Ribbon": "Red", "Buckle":"Blue"},
+		{ "Ribbon": "Teal", "Buckle":"Black"},
+		{ "Ribbon": "Pink", "Buckle":"Pink"},
+		{ "Ribbon": "Plaid", "Buckle":"Black"},
+		{ "Ribbon": "Bones", "Buckle":"Teal"},
+		{ "Ribbon": "Floral", "Buckle":"Pink"},
+		{ "Ribbon": "Triangles", "Buckle":"Green"},
+		{ "Ribbon": "Chevron", "Buckle":"Black"},
+		{ "Ribbon": "swirl", "Buckle":"Teal"}
+	],
+    "externalIds": {
+        "keyFields" : ["Size"], 
+        "variants"  : { "Small" : "936461445" , 
+                        "Medium" : "936461909",
+						"Large" : "936464293"
+                      }
+    },
+
+    "views": [
+        {
+            "id": "default",
+            "layers": [
+                        { "attributeName": "Base", "displayType": "static"}, 
+                        { "attributeName": "Ribbon", "displayType": "image"}, 
+                        { "attributeName": "Buckle", "displayType": "image"},
+						{ "attributeName": "Name", "displayType": "text", "defaults": { "Size": 100,  
+														 "x":380, "y":220, "h":70, "w": 380, "align": "center"
+														}}
+						 ]
+        }
+    ],
+    "steps": [		
+        {
+			"id": "styles",
+			"icon": "fa-th-large",
+            "name": "DESIGN",
+			"type": "tab", 			
+            "attributes": [
+
+            {
+                    "name": "Size",
+                    "customizations": [
+                        {
+                            "field": "Size",
+                            "staticContent": "#staticContentSizeChartTemplate",
+							"label" : "Choose a collar size",							
+							"selectedValue": "Small",
+                            "type": "imageRadio",
+                            "options": [
+                                {	
+                                    "value": "Small",								
+                                    "displayUrl": "small.png"
+                                },
+                                {
+                                    "value": "Medium",				
+                                    "displayUrl": "medium.png",
+                                    "price": 1
+                                },
+								{
+                                    "value": "Large",									
+                                    "displayUrl": "large.png",
+                                    "price": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+
+			 {
+                    "name": "Ribbon",
+                    "customizations": [
+                        {
+                            "field": "Ribbon",
+							"label" : "Pick a color or pattern for the ribbon",
+							"selectedValue": "Diamonds",
+                            "type": "groupedColorPicker",
+                            "groups": [
+								{ 
+                                    "name": "Bold", 
+									"label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+													{ "value": "Red", "display": "c2002f"},
+													{ "value": "Orange", "display": "f68d29"},
+													{ "value": "Yellow", "display": "ffd923"},
+                                                    { "value": "Teal", "display": "9cd8d8"},
+								                    { "value": "Green", "display": "009877"},
+													{ "value": "Blue", "display": "005cb8"},
+								                    { "value": "Purple", "display": "853175"},
+                                                    { "value": "Pink", "display": "e51992"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+									"label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000"},
+													{ "value": "White", "display": "ffffff"}
+                                                ]
+                                },
+								 { 
+                                    "name": "Patterns", 
+									"label": "Fun designs with multiple color options",
+                                    "img": "/pattern-icon.png",  
+                                    "options": [
+                                        { "isImage": true, "imgSrc": "plaid5.jpg", "value": "Plaid", "label": "Plaid" },
+                                        { "isImage": true, "imgSrc": "anchor1.jpg", "value": "Anchor", "label": "Anchor"},
+                                        { "isImage": true, "imgSrc": "diamonds1.jpg", "value": "Diamonds", "label": "Diamonds"},
+                                        { "isImage": true, "imgSrc": "bones5.jpg", "value": "Bones", "label": "Bones" },
+                                        { "isImage": true, "imgSrc": "floral1.jpg", "value": "floral", "label": "Floral"},
+                                        { "isImage": true, "imgSrc": "swirl1.jpg", "value": "swirl", "label": "Swirl"},
+                                        { "isImage": true, "imgSrc": "chevron5.jpg", "value": "Chevron", "label": "Chevron"},
+                                        { "isImage": true, "imgSrc": "triangles1.jpg", "value": "Triangles", "label": "Triangles"}
+
+                                    ]
+                                }
+                            ]
+                            
+                        }
+                    ]
+                },
+                {
+                    "name": "Buckle",
+                    "customizations": [
+                        {
+                            "field": "Buckle",
+							"label" : "Pick a color for the buckle",
+							"selectedValue": "Purple",
+                            "type": "groupedColorPicker",
+                            "groups": [
+								{ 
+                                    "name": "Bold", 
+									"label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+													{ "value": "Red", "display": "c2002f"},
+													{ "value": "Orange", "display": "f68d29"},
+													{ "value": "Yellow", "display": "ffd923"},
+                                                    { "value": "Teal", "display": "9cd8d8"},
+								                    { "value": "Green", "display": "009877"},
+													{ "value": "Blue", "display": "005cb8"},
+								                    { "value": "Purple", "display": "853175"},
+                                                    { "value": "Pink", "display": "e51992"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+									"label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000"},
+													{ "value": "White", "display": "ffffff"}
+                                                ]
+                                }
+                            ]
+                            
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "personalize",
+			"icon": "fa-pencil",
+            "name": "PERSONALIZE",
+			"type": "list",	
+            "views": ["default"],		
+            "attributes": [
+				{
+					"name":  "Name",
+                    "customizations": [
+                        {
+                            "field": "text",
+							"display" : "Add your dog's name",
+							"selectedValue": "",
+                            "type": "text"
+                        },
+						{
+                            "field": "font",
+							"label" : "Choose a font",
+							"selectedValue": "BigDog.TTF",
+                            "type": "dropDown",
+                            "options": [
+								{
+									"value": "PlayfulPup.TTF",
+									"display": "Playful Pup"
+								},
+								{
+									"value": "ClassyCanine.ttf",
+									"display": "Classy Canine"
+								},
+								{
+									"value": "BigDog.TTF",
+									"display": "Big DOG"
+								}
+                            ]
+                        },
+						{
+                            "field": "textColor",
+							"label" : "Choose text color",
+							"selectedValue": "Black",
+                            "type": "groupedColorPicker",
+                            "groups": [
+								{ 
+                                    "name": "Bold", 
+									"label":"Vibrant colors that really pop",
+                                    "img": "/bright-icon.png",  
+                                    "options": [
+													{ "value": "Red", "display": "c2002f", "label":"Red"},
+													{ "value": "Orange", "display": "f68d29", "label":"Orange"},
+													{ "value": "Yellow", "display": "ffd923", "label":"Yellow"},
+                                                    { "value": "Teal", "display": "9cd8d8", "label":"Teal"},
+								                    { "value": "Green", "display": "009877", "label":"Green"},
+													{ "value": "Blue", "display": "005cb8", "label":"Blue"},
+								                    { "value": "Purple", "display": "853175", "label":"Purple"},
+                                                    { "value": "Pink", "display": "e51992", "label":"Pink"}
+                                                ]
+                                },
+                                { 
+                                    "name": "Warm", 
+									"label": "Rich colors that keep it classy",
+                                    "img": "/netural-icon.png",  
+                                    "options": [
+                                                    { "value": "Black", "display": "000000", "label": "Black"},
+													{ "value": "White", "display": "ffffff", "label": "White"},
+													{ "value": "LightGray", "display": "b4b2b2", "label": "LightGray"},
+													{ "value": "Tan", "display": "cfb4a7", "label": "Tan"},
+													{ "value": "Brown", "display": "5d3326", "label": "Brown"},
+													{ "value": "DarkGreen", "display": "404726", "label": "DarkGreen"},
+													{ "value": "NavyBlue", "display": "003763", "label": "NavyBlue"},
+								                    { "value": "Wine", "display": "79232e", "label": "Wine"	}
+                                                ]
+                                }
+							]
+                        }
+                    ]
+                }	
+            ]
+        }
+    ]
+}

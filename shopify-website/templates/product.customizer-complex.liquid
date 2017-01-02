@@ -1,0 +1,77 @@
+{% include 'breadcrumb' %}
+<section id="columns" class="columns-container">
+    <div id="columns" class="container">
+        <div class="row">
+            {% if settings.sidebar_productdetail_enable %}
+                {% assign column_center = 'col-sm-12 col-md-9' %}
+                {% assign column_left_product = 'col-xs-12 col-sm-12 col-md-12' %}
+                {% assign column_center_product = 'col-xs-12 col-sm-12 col-md-12' %}
+                {% assign column_right_product = 'col-xs-12 col-sm-12 col-md-12' %}
+                <aside>
+                    <div id="left_column" class="left_column sidebar col-sm-3 hidden-sm hidden-xs">
+                        {% include 'sidebar' %}
+                    </div>
+                </aside>
+            {% endif %}
+            <div id="center_column" class="product center_column {{ column_center }}">
+                {% include 'block-customizer' %}
+                <div itemscope itemtype="http://schema.org/Product">
+                    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+                    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+                    <div class="primary_block">
+                        <div class="row">
+                          	<div class="col-lg-12">
+                                <h2 style="float: left; margin: 5px 10px 0 0;">Share:</h2>
+                                {% if settings.product_page_social_enable %}
+                                    {% include 'block-social-sharing' %}
+                                {% endif %}
+                                {% assign dealTime = false %}
+                            </div>
+                        </div>
+                    </div>
+                  	<div class="clearfix">
+                  		{% include 'block-product-gallery' %}
+                    </div>
+                    {% if settings.product_related_enable %}
+                    <div class="clearfix">
+                        {% include 'block-related-products' with '01', customTitle: "PEOPLE WHO BOUGHT THIS ALSO BOUGHT", customColumns: 4 %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+  <div id="top_newsletter_column">
+    	<div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                {% include 'block-home-newsletter' with '01' %}
+              </div>
+            </div>
+          </div>
+      </div>
+  	</div>
+  	<div id="yotpo" class="container">
+      <div class="row">
+        <div class="clearfix">
+          {% assign item_in_page = 4 %}
+          {% assign grid_item_width = 'col-md-3 col-xs-6 col-sp-12' %}
+          {% assign row_in_tab = 1 %}
+          {% assign check_iterm_special = false %}
+          {% include 'block-trending' with '01' %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="primary_block">
+          <div class="yotpo yotpo-main-widget"
+               data-product-id="{{ product.id }}"
+               data-name="{{ product.title | escape }}"
+               data-url="{{ shop.url }}{{ product.url }}"
+               data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+               data-description="{{ product.description | escape }}">
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

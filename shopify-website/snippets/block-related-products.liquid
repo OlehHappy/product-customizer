@@ -1,0 +1,70 @@
+{% if customColumns %}
+{% assign number_of_related_products = customColumns %}
+{% else %}
+{% assign number_of_related_products = settings.product_related_column %}
+{% endif %}
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+{% assign found_a_collection = false %}
+{% for c in product.collections %}
+	{% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+		{% assign found_a_collection = true %}
+		{% assign collection = c %}
+	{% endif %}
+{% endfor %}
+{% endif %}
+
+<div id="productrelated{{ block-related-products }}" class="products_block exclusive" >
+	<h4 class="page-subheading productscategory_title">
+      	{% if customTitle %}
+      	{{ customTitle }}
+      	{% else %}
+		{{ 'products.product.product_related' | t }}
+      	{% endif %}
+	</h4>
+	<div class="block_content">
+			{% assign collection_produclists = collection.products %}
+			{% if settings.product_related_type == 'boostrap_carousel' %}
+				{% capture product_carousel %}product_releted_{{ block-related-products }}{% endcapture %}
+				{% assign item_in_page = 4 %}
+				{% assign arrayItems = "4,8,12,16,20,24" | split: ',' %}
+				{% assign grid_item_width = 'col-md-3 col-xs-6 col-sp-12' %}
+				{% include 'product-carousel' %}
+			{% else %}
+				{% assign item_in_page = 4 %}
+				{% assign row_in_tab = 1 %}
+				{% include 'product-carousel-owl' %}
+			{% endif %}
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		{% if settings.product_related_type == 'boostrap_carousel' %}
+	    $('#productrelated{{ block-related-products }}').each(function(){
+	        $(this).carousel({
+	            pause: 'hover',
+	            interval: {{ settings.product_related_interval }}
+	        });
+	    });
+	    {% else %}
+	    	$('#productrelated{{ block-related-products }} .owl-carousel').each(function(){
+    		  	$(this).owlCarousel({
+    		      	items : {{ number_of_related_products }},
+    		      	itemsDesktop : [1199, 3],
+    		      	itemsDesktopSmall : [979, 2],
+    		      	lazyLoad : true,
+    		      	navigation : true,
+		      		afterInit : SetOwlCarouselFirstLast,
+			        afterAction : SetOwlCarouselFirstLast,
+			        addClassActive : true,
+		      	}); ;
+    		});
+    		function SetOwlCarouselFirstLast(el){
+			  el.find(".owl-item").removeClass("first");
+			  el.find(".owl-item.active").first().addClass("first");
+
+			  el.find(".owl-item").removeClass("last");
+			  el.find(".owl-item.active").last().addClass("last");
+			};
+	    {% endif %}
+	});
+</script>

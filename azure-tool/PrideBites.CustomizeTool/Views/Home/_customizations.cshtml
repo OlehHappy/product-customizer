@@ -1,0 +1,183 @@
+﻿<script type="text/x-underscore" id="colorPickerTemplate">
+    <div class="colorPickerWrap">
+        <div class="colorPicker">
+            <% if(typeof(customization.label) != 'undefined' ){%>
+                <label><%= customization.label %></label>
+            <% } _.each(customization.options, function(option) { %>
+            <span class="optionWrap">
+                <span class="optionBtn" data-bind="css: { active: userSelection['<%=customization.field%>']() == '<%= option.value%>' }">
+                    <% if(!option.isImage){%>
+                    <span class="option" style="background-color:#<%= option.display %>" data-field='<%=customization.field%>' data-value='<%= option.value%>'></span>
+                    <%}else{%>
+                    <img src="<%= window.OptionRoot + option.imgSrc %>" class="option" data-field='<%=customization.field%>' data-value='<%= option.value%>' />
+                    <%}%>
+                </span>
+                <%= option.label || option.value%>
+            </span>
+            
+            <%});%>
+        </div>
+    </div>
+
+</script>
+<script type="text/x-underscore" id="colorPickerSubGroupTemplate">
+    <div class="colorPickerWrap" tabindex="0">
+            <% _.each(customization.subGroups, function(subGroup) { %>
+            <div class="subgroup" style="position:relative;">
+                <a tabindex="0" rel="popover" data-toggle="popover" data-trigger="focus"><input type="image" src="<%= window.OptionRoot + subGroup.groupImg%>" class="colorPicker-subGroup" /></a>
+                <span style="position:absolute;left:0px;bottom:-5px;text-align:center; width:100%;"><%= subGroup.display %></span>
+                <span class="colorPicker-subOptions">
+                    @*Hidden content that will be pulled into the popover*@
+                    <%= _.template( $("#colorPickerTemplate").html(), { "customization": { "options": subGroup.options, "field": customization.field } }) %>
+                </span>
+            </div>
+            <%});%>
+        </div>
+</script>
+<script type="text/x-underscore" id="groupedColorPickerTemplate">
+        <div class="groupedColorPicker">
+            <label><%= customization.label || '' %></label>
+            <div class="panel-group" id="<%= customization.field %>Accordian">
+                <% _.each(customization.groups, function(group) { %>
+                <div class="panel panel-primary">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#<%= customization.field %>Accordian" href="#collapse-<%= customization.field + group.name %>" @*data-bind="click: function(){ userState.selectedStep(); }"*@>
+                        <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                        <img src="<%=  window.OptionRoot + group.img %>" />
+                        <span style="display:inline-block;">
+                            <span class="panel-title"><%= group.name %></span>
+                            <span class="panel-subtitle"><%= group.label %></span>
+                        </span>                 
+                    </div>
+                    <div class="panel-collapse collapse" id="collapse-<%= customization.field + group.name %>">
+                        <div class="panel-body">
+                            <% if(group.options && group.options.length > 0){%>
+                                @*Display standard color picker*@
+                                <%= _.template( $('#colorPickerTemplate').html(), {"customization":{ "options": group.options, "field": customization.field }}) %>
+                            <%}if( group.subGroups && group.subGroups.length > 0){%>
+                                @*Display pattern selector by showing subgroups*@
+                                <%= _.template( $('#colorPickerSubGroupTemplate').html(), {"customization":{ "subGroups": group.subGroups, "field": customization.field }}) %>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+                <%});%>
+            </div>
+        </div>
+    </script>
+
+
+
+ <script type="text/x-underscore" id="imageRadioTemplate">
+        <label><%= customization.label || '' %></label>
+        <% var optionScope = customization.optionScope || 'product'; %>
+        <% var optionRoot =  optionScope == 'product' ?  window.ProductImageRoot + product.name + '/options/' : window.OptionRoot; %>
+        <% _.each(customization.options, function(option) { %>
+        <div class="customization-option" style="position:relative; display:flex;"
+             data-bind="click: function(){ userSelection['<%=customization.field%>']('<%= option.value%>'); }, css: { active : userSelection['<%=customization.field%>']() == '<%= option.value%>' }">
+            <img style="width: 98%; border: 1px solid #d0d2d3; margin:2px;" src="<%= optionRoot + customization.field + '-' + option.displayUrl + '?v=' + window.ContentVersion %>" />
+        </div>
+        <%});%>
+        <div style="clear:both;"></div>
+         <% if (customization.staticContent) { %>
+         <%= _.template( $(customization.staticContent).html(), {}) %>
+         <%};%>
+</script>
+<script type="text/x-underscore" id="textTemplate">
+    <label for="field-<%= customization.field%>"><%= customization.display %></label>
+    <div class="textEntry">
+        <input id="field-<%= customization.field%>" maxlength="30" data-bind="value:userSelection['<%=customization.field%>']" type="text" />
+        <button class="btn btn-primary">Preview</button>
+    </div>
+        <button style="width: 100%; margin-top: 4px;" data-bind="click: function(){userSelection['<%=customization.field%>'](''); }" class="btn btn-default">Clear</button>
+</script>
+
+    @*<script type="text/x-underscore" id="toggleSelectTemplate">
+           <label style="display:block;" for="field-<%= customization.field%>"><%= customization.label %></label>
+            <div class="btn-group" data-toggle="buttons">
+                <% _.each(customization.options, function(option) { %>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="<%=option.value%>" data-bind="value:userSelection['<%=customization.field%>']('<%= option.value%>')"/>
+                        <span><%=option.display%></span>
+                    </label>
+                <%});%>
+            </div>
+
+        </script>*@
+
+    <script type="text/x-underscore" id="imageUploadTemplate">
+        <label style="display:block;" for="field-<%= customization.field%>"><%= customization.label %></label>
+        <p class="centered"><%= customization.labelText %></p>
+        <input type="hidden" class="fieldData" id="field-<%=customization.field%>" data-bind="value:userSelection['<%=customization.field%>']" />
+        
+        <div data-bind="visible: !userSelection['<%=customization.field%>']()">
+            <input type="filepicker" class="imageUpload" data-field="<%=customization.field%>" data-fp-services="COMPUTER,FACEBOOK,INSTAGRAM, GOOGLE_DRIVE,DROPBOX,BOX,SKYDRIVE,PICASA,FLICKR,GMAIL,URL,IMAGE_SEARCH,WEBCAM" data-fp-mimetype="image/*" />
+        </div>
+        <div class="uploadSuccess" data-bind="visible: userSelection['<%=customization.field%>']">
+            <span class="status ok"><span class="glyphicon glyphicon-ok" style="top:15px;"></span></span><button disabled style="height:50px; width:74%; font-size:12px;">File Uploaded Successfully</button><a class="status remove" data-bind="click: userSelection['<%=customization.field%>']('')"><span class="glyphicon glyphicon-trash" style="top:15px;"></span></a>
+        </div>
+
+        @*<div id="fine-uploader"></div>*@
+    </script>
+
+    <script type="text/x-underscore" id="uploadSuccessTemplate">
+        <span>success</span>
+        <span><%= labelText %></span>
+        <span>delete</span>
+    </script>
+
+    <script type="text/x-underscore" id="dropDownTemplate">
+        <label style="display:block;" for="field-<%= customization.field%>"><%= customization.label %></label>
+        <select id="field-<%= customization.field%>" data-bind="value:userSelection['<%=customization.field%>']">
+            <% _.each(customization.options, function(option) {
+                if(option.value) { %>
+                <option value="<%=option.value%>"><%=option.display%></option>
+                <%} else {%>
+                <option value="<%=option%>"><%=option%></option>
+                <%}%>
+            <%});%>
+        </select>
+    </script>
+
+    <script type="text/template" id="qq-template">
+        <div class="qq-uploader-selector qq-uploader">
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span>Drop files here to upload</span>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>Upload a file</div>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <span class="qq-edit-filename-icon-selector qq-edit-filename-icon"></span>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
+                    <a class="qq-upload-retry-selector qq-upload-retry" href="#">Retry</a>
+                    <a class="qq-upload-delete-selector qq-upload-delete" href="#">Delete</a>
+                    <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+

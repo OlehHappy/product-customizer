@@ -1,0 +1,61 @@
+{% if settings.slider_width_mode == "boxed" %}
+    <div class="container">
+{% endif %}
+<div class="slider-container {{ settings.slider_group_class }} adjust_height">
+    <ul id="sliderlayer" class="slides clearfix">
+        {% for i in (1..6) %}
+            {% capture slide %}slide_{{ i }}{% endcapture %}
+            {% capture slide_img %}slideshow_image_{{ i }}.jpg{% endcapture %}
+            {% capture slide_url %}slideshow_url_{{ i }}{% endcapture %}
+            {% capture slide_title %}slideshow_title_{{ i }}{% endcapture %}
+            {% capture slide_des %}slideshow_des_{{ i }}{% endcapture %}
+            {% capture slide_textlink %}slideshow_textlink_{{ i }}{% endcapture %}
+            {% capture slide_urllink %}slideshow_urllink_{{ i }}{% endcapture %}
+            {% capture slide_caption %}caption_{{ i }}{% endcapture %}
+            {% capture slide_txt1 %}slideshow_txtfirst_{{ i }}{% endcapture %}
+            {% if settings[slide] %}
+                <li>
+                    {% if settings[slide_url] == blank %}
+                        {{ slide_img | asset_url | img_tag: settings.slide_title, "img-responsive" }}
+                    {% else %}
+                        <a href="{{ settings[slide_url] }}" class="slide-link">
+                            {{ slide_img | asset_url | img_tag: settings.slide_title, "img-responsive" }}
+                        </a>
+                    {% endif %}
+                    <div class="slide-caption row {{ slide_caption }}">
+                        <div class="container">
+                          <div class="container-slider">
+                            {% if settings[slide_txt1] != blank %}
+                                <div class="text_first">{{ settings[slide_txt1] }}</div>
+                            {% endif %}
+                            {% if settings[slide_title] != blank %}
+                                <h3>{{ settings[slide_title] }}</h3>
+                            {% endif %}
+                            {% if settings[slide_des] != blank %}
+                                <p>{{ settings[slide_des] }}</p>
+                            {% endif %}
+                            {% if settings[slide_textlink] != blank %}
+                                <a class="btn btn-slide outline" href="{{ settings[slide_urllink] }}" title="{{ settings[slide_textlink] }}">{{ settings[slide_textlink] }}</a>
+                            {% endif %}
+                        	</div>
+                        </div>
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% if settings.slider_width_mode == "boxed" %}
+    </div>
+{% endif %}
+<script>
+    $(document).ready(function() {
+        $('.slider-container').flexslider({
+            namespace: "leo-", 
+            animation: "{{ settings.slider_animation_type }}",
+            smoothHeight: false,
+            prevText: '',
+            nextText: ''
+        });
+    });
+</script>

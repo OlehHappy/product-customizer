@@ -1,0 +1,120 @@
+<div id="productTabs{{ block-producttabs }}" class="products_block exclusive block">
+	<div class="block_content">
+		<ul id="productTabsNav" class="nav nav-tabs">
+			{% if settings.home_producttabs_titletab_1 != blank %}
+				<li><a href="#{{ settings.home_producttabs_titletab_1 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_1 }}</span></a></li>
+			{% endif %}
+			{% if settings.home_producttabs_titletab_2 != blank %}
+          		<li><a href="#{{ settings.home_producttabs_titletab_2 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_2 }}</span></a></li>
+			{% endif %}
+      		{% if settings.home_producttabs_titletab_3 != blank %}
+          		<li><a href="#{{ settings.home_producttabs_titletab_3 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_3 }}</span></a></li>
+  			{% endif %}
+      		{% if settings.home_producttabs_titletab_4 != blank %}
+      			<li><a href="#{{ settings.home_producttabs_titletab_4 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_4 }}</span></a></li>
+      		{% endif %}
+		</ul>
+      	<div id="productTabsOwl" class="owl-carousel">
+          	{% if settings.home_producttabs_titletab_1 != blank %}
+       		<div>
+              	<a href="#{{ settings.home_producttabs_titletab_1 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_1 }}</span></a>
+          	</div>
+          	{% endif %}
+          	{% if settings.home_producttabs_titletab_2 != blank %}
+       		<div>
+              	<a href="#{{ settings.home_producttabs_titletab_2 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_2 }}</span></a>
+          	</div>
+          	{% endif %}
+          	{% if settings.home_producttabs_titletab_3 != blank %}
+       		<div>
+              	<a href="#{{ settings.home_producttabs_titletab_3 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_3 }}</span></a>
+          	</div>
+          	{% endif %}
+          	{% if settings.home_producttabs_titletab_4 != blank %}
+       		<div>
+              	<a href="#{{ settings.home_producttabs_titletab_4 | camelcase }}" data-toggle="tab"><span>{{ settings.home_producttabs_titletab_4 }}</span></a>
+          	</div>
+          	{% endif %}
+      	</div>
+		<div id="product_tab_content">
+			<div class="product_tab_content tab-content {% if settings.home_producttabs_type != 'boostrap_carousel' %}owl-row{% endif %}">
+				{% if settings.home_producttabs_titletab_1 != blank %}
+					<div class="tab-pane" id="{{ settings.home_producttabs_titletab_1 | camelcase }}">
+						{% assign collection_produclists = collections[settings.home_producttabs_collection_1].products %}
+						{% if settings.home_producttabs_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab01{{ block-producttabs }}{% endcapture %}
+							{% include 'product-carousel' %}
+						{% else %}
+							{% include 'product-carousel-owl' %}
+						{% endif %}
+	              	</div>
+              	{% endif %}
+              	{% if settings.home_producttabs_titletab_2 != blank %}
+					<div class="tab-pane" id="{{ settings.home_producttabs_titletab_2 | camelcase }}">
+						{% assign collection_produclists = collections[settings.home_producttabs_collection_2].products %}
+						{% if settings.home_producttabs_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab02{{ block-producttabs }}{% endcapture %}
+							{% include 'product-carousel' %}
+						{% else %}
+							{% include 'product-carousel-owl' %}
+						{% endif %}
+	              	</div>
+              	{% endif %}
+              	{% if settings.home_producttabs_titletab_3 != blank %}
+					<div class="tab-pane" id="{{ settings.home_producttabs_titletab_3 | camelcase }}">
+						{% assign collection_produclists = collections[settings.home_producttabs_collection_3].products %}
+						{% if settings.home_producttabs_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab03{{ block-producttabs }}{% endcapture %}
+							{% include 'product-carousel' %}
+						{% else %}
+							{% include 'product-carousel-owl' %}
+						{% endif %}
+	              	</div>
+              	{% endif %}
+              	{% if settings.home_producttabs_titletab_4 != blank %}
+					<div class="tab-pane" id="{{ settings.home_producttabs_titletab_4 | camelcase }}">
+						{% assign collection_produclists = collections[settings.home_producttabs_collection_4].products %}
+						{% if settings.home_producttabs_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab04{{ block-producttabs }}{% endcapture %}
+							{% include 'product-carousel' %}
+						{% else %}
+							{% include 'product-carousel-owl' %}
+						{% endif %}
+	              	</div>
+              	{% endif %} 
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+        $("#productTabsOwl").owlCarousel({
+          
+        });
+      $("#productTabsOwl").find('.owl-item').first().addClass('active');
+      $("#productTabsOwl .owl-item").click(function(){
+		 $('.owl-item',"#productTabsOwl").removeClass('active');
+      	$(this).addClass('active');
+      });
+		{% if settings.home_producttabs_type == 'boostrap_carousel' %}
+		    $('#productTabs{{ block-producttabs }} .carousel').each(function(){
+		        $(this).carousel({
+		            pause: 'hover',
+		            interval: {{ settings.home_producttabs_interval }}
+		        });
+		    });
+	    {% else %}
+	    	$('#productTabs{{ block-producttabs }} .owl-carousel').each(function(){
+    		  	$(this).owlCarousel({
+    		      	items : {{ columns_product }},
+    		      	lazyLoad : true,
+    		      	navigation : true,
+              		itemsDesktopSmall : [980,2],
+              		itemsMobile : [479, 2]
+		      	}); 
+    		});
+	    {% endif %}
+		$("#productTabs{{ block-producttabs }} .nav-tabs li", this).first().addClass("active");
+		$("#productTabs{{ block-producttabs }} .tab-content .tab-pane", this).first().addClass("active");
+	});
+</script>
